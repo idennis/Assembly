@@ -15,10 +15,22 @@ struct event
     var eventDesription:String
     var eventAddress:address
 
-    var hostUser:user
-    var joinedUsers:[user]
+//    var hostUser:user
+//    var joinedUsers:[user]
     
 //    var coverPhoto:UIImage
+    
+    
+    init()
+    {
+        
+        eventName = "Web Dev Meetup 2016"
+        eventDateTime = NSDate()
+        eventDesription = "Lorem Ipsum"
+        eventAddress = address()
+        
+        
+    }
     
     
     

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -22,12 +23,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2s-iU-nH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600" y="709"/>
+            <point key="canvasLocation" x="2216" y="661"/>
         </scene>
-        <!--Item 1-->
+        <!--What's On-->
         <scene sceneID="OK4-yB-eVg">
             <objects>
-                <viewController id="CMU-T4-ys8" sceneMemberID="viewController">
+                <viewController id="CMU-T4-ys8" customClass="ViewController" customModule="Assembly" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GiE-FH-JPP"/>
                         <viewControllerLayoutGuide type="bottom" id="nKn-jn-Lpt"/>
@@ -35,13 +36,27 @@
                     <view key="view" contentMode="scaleToFill" id="I3Y-jL-Rgi">
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="eventName" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3M-C1-Vob">
+                                <rect key="frame" x="51" y="87" width="262" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h3M-C1-Vob" firstAttribute="leading" secondItem="I3Y-jL-Rgi" secondAttribute="leadingMargin" constant="20" id="K4o-Mj-LnU"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Loe-sC-JLb"/>
+                    <tabBarItem key="tabBarItem" title="What's On" id="Loe-sC-JLb"/>
+                    <connections>
+                        <outlet property="eventNameLabel" destination="h3M-C1-Vob" id="3Y6-jX-5wR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYv-tI-RUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328" y="709"/>
+            <point key="canvasLocation" x="1530" y="661"/>
         </scene>
         <!--Item-->
         <scene sceneID="odW-MA-QTd">
@@ -60,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYd-Ys-5b4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3022" y="709"/>
+            <point key="canvasLocation" x="2878" y="661"/>
         </scene>
         <!--Item-->
         <scene sceneID="Xp1-Xg-wtd">
@@ -79,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUR-Nj-9iB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3790" y="709"/>
+            <point key="canvasLocation" x="3560" y="661"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7AY-cO-cy8">

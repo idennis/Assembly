@@ -18,5 +18,15 @@ struct address
     var postcode:Int
     
     
+    init()
+    {
+        locationName = "The Royal Melbourne Hotel"
+        streetNumber = 20
+        streetName = "Bourke St"
+        suburb = "Melbourne"
+        stateName = "VIC"
+        postcode = 3000
+
+    }
     
 }
