@@ -17,6 +17,7 @@
 		95566B331C991C0A003A7A45 /* EventAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95566B321C991C0A003A7A45 /* EventAddress.swift */; };
 		95566B361C991F07003A7A45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95566B351C991F07003A7A45 /* User.swift */; };
 		95566B391C992CD3003A7A45 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95566B381C992CD3003A7A45 /* Model.swift */; };
+		9560670C1CA2CEE100A984C6 /* EventCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9560670B1CA2CEE100A984C6 /* EventCardsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		95566B321C991C0A003A7A45 /* EventAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAddress.swift; sourceTree = "<group>"; };
 		95566B351C991F07003A7A45 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		95566B381C992CD3003A7A45 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		9560670B1CA2CEE100A984C6 /* EventCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCardsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				95432C301C97F19A00BC21C5 /* ViewController.swift */,
+				9560670B1CA2CEE100A984C6 /* EventCardsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				95432C311C97F19A00BC21C5 /* ViewController.swift in Sources */,
 				95566B331C991C0A003A7A45 /* EventAddress.swift in Sources */,
+				9560670C1CA2CEE100A984C6 /* EventCardsViewController.swift in Sources */,
 				95509BE21C990EFD000B569C /* Event.swift in Sources */,
 				95566B391C992CD3003A7A45 /* Model.swift in Sources */,
 				95566B361C991F07003A7A45 /* User.swift in Sources */,
