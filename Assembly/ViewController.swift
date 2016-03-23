@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
     // Property referencing the label in the view
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventDateLabel: UILabel!
@@ -17,25 +18,18 @@ class ViewController: UIViewController {
     
     // Property referencing cover photo image in the view
     //@IBOutlet weak var eventCoverPhoto: UIImageView!
-    
 
-    
-    var model:Model? = Model()
-
-    
-    
     func loadEvent()
     {
 
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
+        var myModel: Model?
+        myModel = Model()
+        print(myModel?.events[0])
 
     }
 

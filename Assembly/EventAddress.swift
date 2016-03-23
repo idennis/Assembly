@@ -10,22 +10,22 @@ import Foundation
 
 struct address
 {
-    var locationName:String
-    var streetNumber:Int
-    var streetName:String
-    var suburb:String
-    var stateName:String
-    var postcode:Int
+    var locationName:String?
+    var streetNumber:Int?
+    var streetName:String?
+    var suburb:String?
+    var stateName:String?
+    var postcode:Int?
     
-    init(locationName:String, streetNumber:Int, streetName:String, suburb:String, stateName:String, postcode:Int)
-    {
-        self.locationName = locationName
-        self.streetNumber = streetNumber
-        self.streetName = streetName
-        self.suburb = suburb
-        self.stateName = stateName
-        self.postcode = postcode
-        
-    }
+//    init(locationName:String, streetNumber:Int, streetName:String, suburb:String, stateName:String, postcode:Int)
+//    {
+//        self.locationName = locationName
+//        self.streetNumber = streetNumber
+//        self.streetName = streetName
+//        self.suburb = suburb
+//        self.stateName = stateName
+//        self.postcode = postcode
+//        
+//    }
 
 }
