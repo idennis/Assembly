@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     func loadEvent()
     {
-        eventNameLabel?.text = model.getEventName()
+
     }
     
     
@@ -34,10 +34,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        
-        // This is just onLoad()
-        // for testing purposes
-        eventNameLabel?.text = model.getEventName()
         
 
     }

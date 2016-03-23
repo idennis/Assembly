@@ -10,12 +10,17 @@ import Foundation
 
 struct user
 {
+    // UN, PW
+    var username:String
+    var password:String
+    
     // Basic information
     var firstName:String
     var lastName:String
     var BOD:NSDate
     var location:String
     
+
     // Joined Events
     var joinedEvents:[event]
     

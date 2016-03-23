@@ -17,16 +17,15 @@ struct address
     var stateName:String
     var postcode:Int
     
-    
-    init()
+    init(locationName:String, streetNumber:Int, streetName:String, suburb:String, stateName:String, postcode:Int)
     {
-        locationName = "The Royal Melbourne Hotel"
-        streetNumber = 20
-        streetName = "Bourke St"
-        suburb = "Melbourne"
-        stateName = "VIC"
-        postcode = 3000
-
+        self.locationName = locationName
+        self.streetNumber = streetNumber
+        self.streetName = streetName
+        self.suburb = suburb
+        self.stateName = stateName
+        self.postcode = postcode
+        
     }
-    
+
 }

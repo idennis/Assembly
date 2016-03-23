@@ -17,31 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nvG-Rg-JLx">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <color key="barTintColor" red="1" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </navigationBar>
-                            <tabBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AMV-sS-H0X">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMV-sS-H0X">
                                 <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items/>
-                                <color key="barTintColor" red="1" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="selectedImageTintColor" red="1" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nvG-Rg-JLx" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="AOL-LK-5YR"/>
-                            <constraint firstItem="nvG-Rg-JLx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JwW-wM-Qpm"/>
+                            <constraint firstItem="AMV-sS-H0X" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="5ZF-Rc-NmF"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="AMV-sS-H0X" secondAttribute="bottom" id="O25-jb-gq1"/>
                             <constraint firstItem="AMV-sS-H0X" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nx6-Uq-Ips"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="sRE-2V-20v"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="21" y="83"/>
         </scene>
     </scenes>
 </document>
