@@ -19,7 +19,12 @@ class Model
     {
         event1Address = address.init(locationName: "The Royal Melbourne Hotel", streetNumber: 20, streetName: "Bourke St", suburb: "Melbourne", stateName: "VIC", postcode: 3000)
         
-        event1 = event.init(eventName: "web dev", eventDateTime: NSDate(), eventDescription: "asdasdas", eventCategories: ["Web Development", "Technology"], eventAddress: event1Address)
+        event1 = event.init(eventName: "Web Development Meetup 2016", eventDateTime: NSDate(), eventDescription: "asdasdas", eventCategories: ["Web Development", "Technology"], eventAddress: event1Address)
+        
+        events.append(event1)
+
+        print(events[0])
+
     }
     
 

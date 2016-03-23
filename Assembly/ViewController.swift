@@ -20,7 +20,9 @@ class ViewController: UIViewController {
     
 
     
-    var model = Model()
+    var model:Model? = Model()
+
+    
     
     func loadEvent()
     {
@@ -32,7 +34,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         
         
 
