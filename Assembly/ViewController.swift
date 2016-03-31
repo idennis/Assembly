@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    // MARK: Properties
+    var events = [Event]()
 
 
     func loadEvent()
@@ -20,11 +22,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         var myModel: Model?
         myModel = Model()
+        
         print(myModel?.events[0])
-
+        print(myModel?.events[1])
     }
 
     override func didReceiveMemoryWarning() {

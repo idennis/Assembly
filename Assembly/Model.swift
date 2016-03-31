@@ -11,15 +11,16 @@ import Foundation
 class Model
 {
     
-    var events:[event] = []
+    var events:[Event] = []
 
 
     init()
     {
-        var event1:event = event()
+        var event1:Event = Event()
         event1.eventName = "Web Development Meetup 2016"
         event1.eventDateTime = NSDate()
         event1.eventDescription = "asdasdasdads"
+        event1.eventCategories = ["Technology", "Web"]
         
         var event1Address:address = address()
         event1Address.locationName = "The Royal Melbourne Hotel"
@@ -33,6 +34,25 @@ class Model
         
         events.append(event1)
         
+        
+        
+        var event2:Event = Event()
+        event2.eventName = "Rowing Club 2016"
+        event2.eventDateTime = NSDate()
+        event2.eventDescription = "asdasdasdads"
+        event2.eventCategories = ["Rowing", "Sports"]
+        
+        var event2Address:address = address()
+        event2Address.locationName = "Queensberry Hotel"
+        event2Address.streetNumber = 14
+        event2Address.streetName = "Swanston St"
+        event2Address.suburb = "Carlton"
+        event2Address.stateName = "VIC"
+        event2Address.postcode = 3053
+        
+        event2.eventAddress = event2Address
+        
+        events.append(event2)
         
 
     }

@@ -8,8 +8,10 @@
 
 import Foundation
 
-struct event
+struct Event
 {
+    
+    // MARK: Properties
     var eventName:String?
     var eventDateTime:NSDate?
     var eventDescription:String?
@@ -24,6 +26,9 @@ struct event
 
 //    var coverPhoto:UIImage
 
+    
+    
+    
 }
 
 

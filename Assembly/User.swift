@@ -22,6 +22,6 @@ struct user
     
 
     // Joined Events
-    var joinedEvents:[event]
+    var joinedEvents:[Event]
     
 }
