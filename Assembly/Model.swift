@@ -11,12 +11,12 @@ import Foundation
 class Model
 {
     
-    var events:[Event] = []
+    var events:[event] = []
 
 
     init()
     {
-        var event1:Event = Event()
+        var event1:event = event()
         event1.eventName = "Web Development Meetup 2016"
         event1.eventDateTime = NSDate()
         event1.eventDescription = "asdasdasdads"
@@ -36,7 +36,7 @@ class Model
         
         
         
-        var event2:Event = Event()
+        var event2:event = event()
         event2.eventName = "Rowing Club 2016"
         event2.eventDateTime = NSDate()
         event2.eventDescription = "asdasdasdads"

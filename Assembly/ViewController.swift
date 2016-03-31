@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     
     // MARK: Properties
-    var events = [Event]()
+    //var events = [Event]()
 
 
     func loadEvent()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Event
+struct event
 {
     
     // MARK: Properties
