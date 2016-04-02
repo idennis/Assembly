@@ -6,7 +6,7 @@
 //  Copyright © 2016 RMIT. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct event
 {
@@ -24,7 +24,7 @@ struct event
 //    var joinedUsers:[user]
     
 
-//    var coverPhoto:UIImage
+    var coverPhoto:UIImage?
 
     
     

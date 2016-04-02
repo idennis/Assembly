@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     // MARK: Properties
     //var events = [Event]()
 
+    
+    
+    
 
     func loadEvent()
     {
@@ -25,9 +28,9 @@ class ViewController: UIViewController {
         
         var myModel: Model?
         myModel = Model()
-        
-        print(myModel?.events[0])
-        print(myModel?.events[1])
+        print(myModel)
+//        print(myModel?.events[0])
+//        print(myModel?.events[1])
     }
 
     override func didReceiveMemoryWarning() {

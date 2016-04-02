@@ -6,10 +6,11 @@
 //  Copyright © 2016 RMIT. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct user
 {
+    // MARK: Properties 
     // UN, PW
     var username:String
     var password:String
@@ -19,7 +20,7 @@ struct user
     var lastName:String
     var BOD:NSDate
     var location:String
-    
+    var profilePhoto:UIImage?
 
     // Joined Events
     var joinedEvents:[event]
