@@ -21,7 +21,6 @@ class EventTableViewController: UITableViewController {
         super.viewDidLoad()
         
         loadSampleEvents()
-        print(events)
     }
 
     func loadSampleEvents(){
@@ -40,7 +39,7 @@ class EventTableViewController: UITableViewController {
         event1Address.postcode = 3000
         
         event1.eventAddress = event1Address
-        
+        event1.coverPhoto = UIImage(named:"coverPhoto-web-meetup")
         events.append(event1)
         
         
@@ -59,9 +58,49 @@ class EventTableViewController: UITableViewController {
         event2Address.stateName = "VIC"
         event2Address.postcode = 3053
         
+        
         event2.eventAddress = event2Address
         
         events.append(event2)
+        
+        
+        var event3:event = event()
+        event3.eventName = "Metropolis New Music Festival 2016 - Cityscapes"
+        event3.eventDateTime = NSDate()
+        event3.eventDescription = "asdasdasdads"
+        event3.eventCategories = ["Music", "Festival"]
+        
+        var event3Address:address = address()
+        event3Address.locationName = "Melbourne Recital Centre"
+        event3Address.streetNumber = 31
+        event3Address.streetName = "Sturt St"
+        event3Address.suburb = "Southbank"
+        event3Address.stateName = "VIC"
+        event3Address.postcode = 3006
+        
+        event3.eventAddress = event3Address
+        
+        event3.coverPhoto = UIImage(named:"coverPhoto-music-festival")
+        events.append(event3)
+        
+        
+        var event4:event = event()
+        event4.eventName = "Melbourne Queer Film Festival"
+        event4.eventDateTime = NSDate()
+        event4.eventDescription = "asdasdasdads"
+        event4.eventCategories = ["Film", "Festival", "LGBTQ"]
+        
+        var event4Address:address = address()
+        event4Address.locationName = "Australian Centre for the Moving Image (ACMI)"
+        event4Address.streetName = "Flinders St"
+        event4Address.suburb = "Melbourne"
+        event4Address.stateName = "VIC"
+        event4Address.postcode = 3000
+        
+        event4.eventAddress = event4Address
+        
+        event4.coverPhoto = UIImage(named:"coverPhoto-queer-film-festival")
+        events.append(event4)
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,7 +121,6 @@ class EventTableViewController: UITableViewController {
 
     // Returns all events for now
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(events.count)
         return events.count
     }
 
@@ -103,8 +141,12 @@ class EventTableViewController: UITableViewController {
         cell.eventNameLabel.text = event.eventName
         cell.eventLocationLabel.text = event.eventAddress?.locationName
         
-        print("in tableView(), should print event name")
-        print(cell.eventNameLabel?.text)
+        // Show default cover photo if no image uploaded
+        if (event.coverPhoto != nil){
+            cell.eventCoverPhoto.image = event.coverPhoto
+        }
+        
+        
         return cell
     }
 

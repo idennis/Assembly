@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Joined-->
@@ -36,7 +37,7 @@
         <scene sceneID="7EI-U8-9Ac">
             <objects>
                 <tableViewController id="9SR-fH-ift" customClass="EventTableViewController" customModule="Assembly" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ozq-pm-dFt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ozq-pm-dFt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,21 +49,53 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRf-yI-cgp">
-                                            <rect key="frame" x="17" y="102" width="457" height="49.5"/>
+                                        <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverPhoto-default.png" translatesAutoresizingMaskIntoConstraints="NO" id="QVa-Y0-4H1">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="KKd-vb-BO2"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="246" placeholderIntrinsicHeight="21" text="Event Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRf-yI-cgp">
+                                            <rect key="frame" x="16" y="112" width="420" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4N-S6-dS0">
-                                            <rect key="frame" x="17" y="159.5" width="457" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="246" placeholderIntrinsicHeight="21" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4N-S6-dS0">
+                                            <rect key="frame" x="16" y="139" width="420" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" id="6NZ-EC-fun"/>
+                                        <constraint firstItem="PRf-yI-cgp" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" multiplier="0.7" constant="-174" id="7lu-Jz-gCC"/>
+                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="top" secondItem="Ad6-lh-Nul" secondAttribute="topMargin" id="Caj-xr-92N"/>
+                                        <constraint firstItem="PRf-yI-cgp" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" multiplier="0.7" id="D2s-20-j60"/>
+                                        <constraint firstItem="q4N-S6-dS0" firstAttribute="leading" secondItem="Ad6-lh-Nul" secondAttribute="leadingMargin" constant="8" id="Ftf-EM-HLD"/>
+                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="top" secondItem="Ad6-lh-Nul" secondAttribute="topMargin" constant="-8" id="Gmt-K0-HGi"/>
+                                        <constraint firstItem="q4N-S6-dS0" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" multiplier="0.7" constant="-174" id="Gx0-uX-tau"/>
+                                        <constraint firstItem="q4N-S6-dS0" firstAttribute="top" secondItem="PRf-yI-cgp" secondAttribute="bottom" constant="6" id="JxG-no-oVG"/>
+                                        <constraint firstItem="PRf-yI-cgp" firstAttribute="leading" secondItem="Ad6-lh-Nul" secondAttribute="leadingMargin" constant="8" id="Oce-wT-Ybz"/>
+                                        <constraint firstItem="PRf-yI-cgp" firstAttribute="top" secondItem="QVa-Y0-4H1" secondAttribute="bottom" constant="12" id="UEA-MT-m5R"/>
+                                        <constraint firstItem="q4N-S6-dS0" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" multiplier="0.7" id="gGW-am-pr8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QVa-Y0-4H1" secondAttribute="trailing" id="hFV-fB-15C"/>
+                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="leading" secondItem="Ad6-lh-Nul" secondAttribute="leadingMargin" id="odY-fk-jpF"/>
+                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="leading" secondItem="Ad6-lh-Nul" secondAttribute="leadingMargin" constant="-8" id="sh8-pP-MAD"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Caj-xr-92N"/>
+                                            <exclude reference="hFV-fB-15C"/>
+                                            <exclude reference="odY-fk-jpF"/>
+                                            <exclude reference="7lu-Jz-gCC"/>
+                                            <exclude reference="Gx0-uX-tau"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="eventCoverPhoto" destination="QVa-Y0-4H1" id="sAL-n2-nt0"/>
                                     <outlet property="eventLocationLabel" destination="q4N-S6-dS0" id="0gs-PI-PiK"/>
                                     <outlet property="eventNameLabel" destination="PRf-yI-cgp" id="fEE-Ln-poB"/>
                                 </connections>
@@ -267,7 +300,6 @@
                     <connections>
                         <segue destination="6Ej-by-sww" kind="relationship" relationship="viewControllers" id="SLW-1v-gKj"/>
                         <segue destination="Frp-ke-adb" kind="relationship" relationship="viewControllers" id="O6G-ai-ey4"/>
-                        <segue destination="iEj-e2-LUv" kind="relationship" relationship="viewControllers" id="BCM-i0-nQc"/>
                         <segue destination="oid-M4-r8K" kind="relationship" relationship="viewControllers" id="tBU-e2-Uoh"/>
                     </connections>
                 </tabBarController>
@@ -542,5 +574,6 @@
         <image name="Plus Filled" width="25" height="25"/>
         <image name="Star" width="25" height="25"/>
         <image name="Star Filled" width="25" height="25"/>
+        <image name="coverPhoto-default.png" width="640" height="202"/>
     </resources>
 </document>

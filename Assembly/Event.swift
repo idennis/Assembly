@@ -18,13 +18,13 @@ struct event
     var eventAddress:address?
 
     var eventCategories:[String]?
-
+    var coverPhoto:UIImage?
 
 //    var hostUser:user
 //    var joinedUsers:[user]
     
 
-    var coverPhoto:UIImage?
+
 
     
     
