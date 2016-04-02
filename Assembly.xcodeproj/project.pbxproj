@@ -20,6 +20,7 @@
 		95566B361C991F07003A7A45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95566B351C991F07003A7A45 /* User.swift */; };
 		95566B391C992CD3003A7A45 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95566B381C992CD3003A7A45 /* Model.swift */; };
 		9585E1F11CAF8FD800439290 /* PostEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9585E1F01CAF8FD800439290 /* PostEventViewController.swift */; };
+		9592D8D61CB01793003A8E3F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592D8D51CB01793003A8E3F /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		95566B351C991F07003A7A45 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		95566B381C992CD3003A7A45 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		9585E1F01CAF8FD800439290 /* PostEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostEventViewController.swift; sourceTree = "<group>"; };
+		9592D8D51CB01793003A8E3F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		95509BDF1C990EAC000B569C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9592D8D51CB01793003A8E3F /* LoginViewController.swift */,
 				95432C301C97F19A00BC21C5 /* ViewController.swift */,
 				9585E1F01CAF8FD800439290 /* PostEventViewController.swift */,
 				952342A31CAD3F8300B52599 /* EventTableViewController.swift */,
@@ -267,6 +270,7 @@
 				95566B391C992CD3003A7A45 /* Model.swift in Sources */,
 				952342A21CAD3E4A00B52599 /* EventTableViewCell.swift in Sources */,
 				95566B361C991F07003A7A45 /* User.swift in Sources */,
+				9592D8D61CB01793003A8E3F /* LoginViewController.swift in Sources */,
 				95432C2F1C97F19A00BC21C5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
