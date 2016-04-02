@@ -12,6 +12,9 @@ class PostEventViewController: UIViewController {
 
     
     // MARK: Properties
+    
+    
+    
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var eventLocationTextField: UITextField!
     @IBOutlet weak var eventTimeDateTextField: UITextField!

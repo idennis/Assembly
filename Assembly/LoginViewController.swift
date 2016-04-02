@@ -12,6 +12,10 @@ class LoginViewController: UIViewController {
 
     
     // MARK: Properties
+    @IBOutlet weak var assemblyLogo: UIImageView!
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
     
     @IBAction func loginButton(sender: UIButton) {
     }
@@ -26,11 +30,18 @@ class LoginViewController: UIViewController {
         return UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:1.0)
     }
     
+    func setLabelsUppercase(){
+        usernameLabel.text = usernameLabel.text!.uppercaseString
+        passwordLabel.text = passwordLabel.text!.uppercaseString
+    }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        setLabelsUppercase()
         
         // Set sign up button border width and color
         self.signUpButton.layer.borderWidth = 1
