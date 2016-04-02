@@ -15,11 +15,24 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var eventLocationLabel: UILabel!
     @IBOutlet weak var eventCoverPhoto: UIImageView!
     
+    @IBOutlet weak var customCellView: UIView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
+        // Draws border
+        let border = CALayer()
+        let width = CGFloat(3.0)
+        border.borderColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
+        border.frame = CGRect(x: 0, y: customCellView.frame.size.height - width, width:  customCellView.frame.size.width, height: customCellView.frame.size.height)
+        
+        border.borderWidth = width
+        customCellView.layer.addSublayer(border)
+        customCellView.layer.masksToBounds = true
+        
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

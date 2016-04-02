@@ -12,6 +12,7 @@ class EventTableViewController: UITableViewController {
 
     
     //MARK: Properties
+    
     var events:[event] = []
     
     
@@ -20,6 +21,10 @@ class EventTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set table view to full screen width
+        tableView.layoutMargins = UIEdgeInsetsZero
+        tableView.separatorInset = UIEdgeInsetsZero
+
         loadSampleEvents()
     }
 
@@ -126,14 +131,19 @@ class EventTableViewController: UITableViewController {
 
 
     
+    
     // Load Table Cell contents
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "EventTableViewCell"
     
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EventTableViewCell
         
+        // Extend the cell border from side to side
+        cell.layoutMargins = UIEdgeInsetsZero
         // Fetch event for data source layout
         let event = events[indexPath.row]
         
@@ -145,6 +155,7 @@ class EventTableViewController: UITableViewController {
         if (event.coverPhoto != nil){
             cell.eventCoverPhoto.image = event.coverPhoto
         }
+        
         
         
         return cell

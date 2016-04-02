@@ -42,59 +42,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EventTableViewCell" rowHeight="200" id="NS0-hp-41v" customClass="EventTableViewCell" customModule="Assembly" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" rowHeight="200" id="NS0-hp-41v" customClass="EventTableViewCell" customModule="Assembly" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NS0-hp-41v" id="Ad6-lh-Nul">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverPhoto-default.png" translatesAutoresizingMaskIntoConstraints="NO" id="QVa-Y0-4H1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRQ-go-Q7U">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                            <subviews>
+                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverPhoto-default.png" translatesAutoresizingMaskIntoConstraints="NO" id="QVa-Y0-4H1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="KKd-vb-BO2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="246" placeholderIntrinsicHeight="21" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4N-S6-dS0">
+                                                    <rect key="frame" x="8" y="134" width="420" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="246" placeholderIntrinsicHeight="21" text="Event Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRf-yI-cgp">
+                                                    <rect key="frame" x="8" y="108" width="420" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="KKd-vb-BO2"/>
+                                                <constraint firstAttribute="trailing" secondItem="QVa-Y0-4H1" secondAttribute="trailing" id="1Ti-Sc-CMl"/>
+                                                <constraint firstItem="QVa-Y0-4H1" firstAttribute="top" secondItem="PRQ-go-Q7U" secondAttribute="top" id="1oW-Lb-bNx"/>
+                                                <constraint firstItem="QVa-Y0-4H1" firstAttribute="leading" secondItem="PRQ-go-Q7U" secondAttribute="leading" id="9Pg-Wt-qxx"/>
+                                                <constraint firstItem="PRf-yI-cgp" firstAttribute="top" secondItem="QVa-Y0-4H1" secondAttribute="bottom" constant="8" id="L1m-GQ-hR7"/>
+                                                <constraint firstItem="PRf-yI-cgp" firstAttribute="width" secondItem="PRQ-go-Q7U" secondAttribute="width" multiplier="0.7" id="U31-zs-Xb6"/>
+                                                <constraint firstItem="q4N-S6-dS0" firstAttribute="top" secondItem="PRf-yI-cgp" secondAttribute="bottom" constant="5" id="XMG-Kp-evr"/>
+                                                <constraint firstItem="q4N-S6-dS0" firstAttribute="width" secondItem="PRQ-go-Q7U" secondAttribute="width" multiplier="0.7" id="fn0-xl-FzP"/>
+                                                <constraint firstItem="q4N-S6-dS0" firstAttribute="leading" secondItem="PRQ-go-Q7U" secondAttribute="leading" constant="8" id="lfd-Xx-5Ki"/>
+                                                <constraint firstItem="PRf-yI-cgp" firstAttribute="leading" secondItem="PRQ-go-Q7U" secondAttribute="leading" constant="8" id="wAU-lb-buy"/>
                                             </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="246" placeholderIntrinsicHeight="21" text="Event Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRf-yI-cgp">
-                                            <rect key="frame" x="16" y="112" width="420" height="21"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="246" placeholderIntrinsicHeight="21" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4N-S6-dS0">
-                                            <rect key="frame" x="16" y="139" width="420" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" id="6NZ-EC-fun"/>
-                                        <constraint firstItem="PRf-yI-cgp" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" multiplier="0.7" constant="-174" id="7lu-Jz-gCC"/>
-                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="top" secondItem="Ad6-lh-Nul" secondAttribute="topMargin" id="Caj-xr-92N"/>
-                                        <constraint firstItem="PRf-yI-cgp" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" multiplier="0.7" id="D2s-20-j60"/>
-                                        <constraint firstItem="q4N-S6-dS0" firstAttribute="leading" secondItem="Ad6-lh-Nul" secondAttribute="leadingMargin" constant="8" id="Ftf-EM-HLD"/>
-                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="top" secondItem="Ad6-lh-Nul" secondAttribute="topMargin" constant="-8" id="Gmt-K0-HGi"/>
-                                        <constraint firstItem="q4N-S6-dS0" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" multiplier="0.7" constant="-174" id="Gx0-uX-tau"/>
-                                        <constraint firstItem="q4N-S6-dS0" firstAttribute="top" secondItem="PRf-yI-cgp" secondAttribute="bottom" constant="6" id="JxG-no-oVG"/>
-                                        <constraint firstItem="PRf-yI-cgp" firstAttribute="leading" secondItem="Ad6-lh-Nul" secondAttribute="leadingMargin" constant="8" id="Oce-wT-Ybz"/>
-                                        <constraint firstItem="PRf-yI-cgp" firstAttribute="top" secondItem="QVa-Y0-4H1" secondAttribute="bottom" constant="12" id="UEA-MT-m5R"/>
-                                        <constraint firstItem="q4N-S6-dS0" firstAttribute="width" secondItem="Ad6-lh-Nul" secondAttribute="width" multiplier="0.7" id="gGW-am-pr8"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="QVa-Y0-4H1" secondAttribute="trailing" id="hFV-fB-15C"/>
-                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="leading" secondItem="Ad6-lh-Nul" secondAttribute="leadingMargin" id="odY-fk-jpF"/>
-                                        <constraint firstItem="QVa-Y0-4H1" firstAttribute="leading" secondItem="Ad6-lh-Nul" secondAttribute="leadingMargin" constant="-8" id="sh8-pP-MAD"/>
+                                        <constraint firstItem="PRQ-go-Q7U" firstAttribute="top" secondItem="Ad6-lh-Nul" secondAttribute="topMargin" constant="-8" id="Qvr-XL-J7j"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="PRQ-go-Q7U" secondAttribute="trailing" constant="-8" id="WRS-ct-Mvd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="PRQ-go-Q7U" secondAttribute="bottom" constant="-8" id="clr-ZP-j5u"/>
+                                        <constraint firstItem="PRQ-go-Q7U" firstAttribute="leading" secondItem="Ad6-lh-Nul" secondAttribute="leadingMargin" constant="-8" id="sFU-7c-lyz"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="Caj-xr-92N"/>
-                                            <exclude reference="hFV-fB-15C"/>
-                                            <exclude reference="odY-fk-jpF"/>
-                                            <exclude reference="7lu-Jz-gCC"/>
-                                            <exclude reference="Gx0-uX-tau"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="customCellView" destination="Ad6-lh-Nul" id="mVY-4O-Ja4"/>
                                     <outlet property="eventCoverPhoto" destination="QVa-Y0-4H1" id="sAL-n2-nt0"/>
                                     <outlet property="eventLocationLabel" destination="q4N-S6-dS0" id="0gs-PI-PiK"/>
                                     <outlet property="eventNameLabel" destination="PRf-yI-cgp" id="fEE-Ln-poB"/>
