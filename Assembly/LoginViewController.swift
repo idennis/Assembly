@@ -23,6 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+
     
     // MARK: Design
     func setButtonBorderAsWhite() -> UIColor{
@@ -58,11 +59,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     // MARK: UITextFieldDelegate
-    func checkLoginEmpty(){
+    func checkLoginEmpty() -> Bool{
         let usernameFieldValue = usernameTextField.text ?? ""
         let passwordFieldValue = passwordTextField.text ?? ""
-        loginButton.enabled = !usernameFieldValue.isEmpty && !passwordFieldValue.isEmpty
         
+        if !usernameFieldValue.isEmpty && !passwordFieldValue.isEmpty{
+            loginButton.enabled = true
+            print("login button enabled")
+            return false
+        }
+        return true
     }
     
     
@@ -78,10 +84,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         else{
             print("in else")
             textField.resignFirstResponder()
-            
+            return true
         }
 
-        return true
+        return false
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
@@ -89,12 +95,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func userTappedBackground(sender: AnyObject) {
-        view.endEditing(true)
+        self.view.endEditing(true)
+        
     }
     
     // MARK: Actions
     @IBAction func loginButton(sender: UIButton) {
     }
     @IBAction func signUpButton(sender: UIButton) {
+    }
+    @IBAction func passwordTextField(sender: UITextField) {
+        print("in password textfield did end")
+        
+        if (checkLoginEmpty() == false){
+            loginButton.sendActionsForControlEvents(.TouchUpInside)
+        }
+        
+        
+        
     }
 }
