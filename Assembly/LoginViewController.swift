@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     // MARK: Properties
@@ -17,12 +17,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
     
-    @IBAction func loginButton(sender: UIButton) {
-    }
-    @IBAction func signUpButton(sender: UIButton) {
-    }
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     
     // MARK: Design
@@ -38,30 +37,64 @@ class LoginViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
+        loginButton.enabled = false
         
+        
+        // Programmatically changes design
         setLabelsUppercase()
-        
-        // Set sign up button border width and color
         self.signUpButton.layer.borderWidth = 1
         self.signUpButton.layer.borderColor = setButtonBorderAsWhite().CGColor
+        
+        // Handle the text field’s user input through delegate callbacks.
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        // Check of input fields are empty
+        checkLoginEmpty()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: UITextFieldDelegate
+    func checkLoginEmpty(){
+        let usernameFieldValue = usernameTextField.text ?? ""
+        let passwordFieldValue = passwordTextField.text ?? ""
+        loginButton.enabled = !usernameFieldValue.isEmpty && !passwordFieldValue.isEmpty
+        
     }
     
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    
+        // Check if first responder is username textfield, then jumps to password textfield
+        if self.usernameTextField.isFirstResponder(){
+            print("in first if")
+            self.passwordTextField.becomeFirstResponder()
+        }
+        // If first responder is password textfield, resign first responder and hide keyboard
+        else{
+            print("in else")
+            textField.resignFirstResponder()
+            
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        return true
     }
-    */
-
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkLoginEmpty()
+    }
+    
+    @IBAction func userTappedBackground(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
+    // MARK: Actions
+    @IBAction func loginButton(sender: UIButton) {
+    }
+    @IBAction func signUpButton(sender: UIButton) {
+    }
 }

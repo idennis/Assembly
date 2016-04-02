@@ -307,7 +307,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYe-1E-ooI">
-                                <rect key="frame" x="175" y="351" width="250" height="35"/>
+                                <rect key="frame" x="175" y="323" width="250" height="35"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="5Vx-LW-PrI"/>
@@ -328,7 +328,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAj-pH-QFU">
-                                <rect key="frame" x="175" y="406" width="250" height="35"/>
+                                <rect key="frame" x="175" y="378" width="250" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign Up">
@@ -361,7 +361,7 @@
                                             <constraint firstAttribute="height" constant="30" id="WtM-iQ-nbg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -421,7 +421,7 @@
                             <constraint firstItem="SAj-pH-QFU" firstAttribute="centerX" secondItem="8xU-ZY-xCG" secondAttribute="centerX" id="cBo-va-Bco"/>
                             <constraint firstItem="SAj-pH-QFU" firstAttribute="height" secondItem="yYe-1E-ooI" secondAttribute="height" id="cXk-2e-DSC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bfd-hK-Ql5" secondAttribute="trailing" constant="20" id="fyT-Ku-YbP"/>
-                            <constraint firstItem="yYe-1E-ooI" firstAttribute="top" secondItem="M2n-tS-jII" secondAttribute="bottom" constant="78" id="n2o-P3-yq0"/>
+                            <constraint firstItem="yYe-1E-ooI" firstAttribute="top" secondItem="M2n-tS-jII" secondAttribute="bottom" constant="50" id="n2o-P3-yq0"/>
                             <constraint firstItem="bfd-hK-Ql5" firstAttribute="top" secondItem="sSU-1m-4nI" secondAttribute="bottom" constant="127" id="oQ5-4l-Bi9"/>
                             <constraint firstItem="dlI-iF-6vV" firstAttribute="centerX" secondItem="8xU-ZY-xCG" secondAttribute="centerX" id="uyi-zA-HeM"/>
                         </constraints>
@@ -435,9 +435,12 @@
                     </view>
                     <connections>
                         <outlet property="assemblyLogo" destination="dlI-iF-6vV" id="Q0W-Ch-MVH"/>
+                        <outlet property="loginButton" destination="yYe-1E-ooI" id="427-C0-7xQ"/>
                         <outlet property="passwordLabel" destination="oaw-I3-cAz" id="84G-6u-UTa"/>
+                        <outlet property="passwordTextField" destination="F1u-I2-wfp" id="d4w-aj-tw7"/>
                         <outlet property="signUpButton" destination="SAj-pH-QFU" id="37Z-X9-lA7"/>
                         <outlet property="usernameLabel" destination="YDr-Ma-kqq" id="72X-8g-bsM"/>
+                        <outlet property="usernameTextField" destination="6fb-Rc-Mex" id="OP8-dh-mh3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ozn-WO-rUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
