@@ -25,6 +25,9 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
 
     @IBOutlet weak var selectedEventNavBar: UINavigationItem!
     
+    @IBOutlet weak var selectedEventDateTimeView: UIView!
+    @IBOutlet weak var selectedEventLocationView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let event = selectedEvent{
@@ -39,6 +42,12 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             selectedEventAddressNameLabel.text = event.eventAddress?.locationName
             selectedEventAddressFullLabel.text = loadAddress()
         }
+        
+        // Draw borders on views
+        selectedEventDateTimeView.layer.borderWidth = 1
+        selectedEventDateTimeView.layer.borderColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
+        selectedEventLocationView.layer.borderWidth = 1
+        selectedEventLocationView.layer.borderColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
         
     }
     
