@@ -20,15 +20,17 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     
     @IBOutlet weak var selectedEventAddressNameLabel: UILabel!
     @IBOutlet weak var selectedEventAddressFullLabel: UILabel!
-    
+
+    @IBOutlet weak var selectedEventCoverPhoto: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let event = selectedEvent{
             navigationItem.title = event.eventName
+            selectedEventCoverPhoto.image = event.coverPhoto
             selectedEventNameLabel.text = event.eventName
             selectedEventAddressNameLabel.text = event.eventAddress?.locationName
-            print(event.eventAddress?.locationName)
             selectedEventAddressFullLabel.text = loadAddress()
         }
         
