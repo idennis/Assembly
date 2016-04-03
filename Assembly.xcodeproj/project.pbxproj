@@ -22,6 +22,7 @@
 		9585E1F11CAF8FD800439290 /* PostEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9585E1F01CAF8FD800439290 /* PostEventViewController.swift */; };
 		9592D8D61CB01793003A8E3F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592D8D51CB01793003A8E3F /* LoginViewController.swift */; };
 		9592D8D81CB08CE3003A8E3F /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592D8D71CB08CE3003A8E3F /* EventDetailsViewController.swift */; };
+		95A34AA61CB0B685003909E3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A34AA51CB0B685003909E3 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		9585E1F01CAF8FD800439290 /* PostEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostEventViewController.swift; sourceTree = "<group>"; };
 		9592D8D51CB01793003A8E3F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9592D8D71CB08CE3003A8E3F /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		95A34AA51CB0B685003909E3 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				952342A31CAD3F8300B52599 /* EventTableViewController.swift */,
 				952342A11CAD3E4A00B52599 /* EventTableViewCell.swift */,
 				9592D8D71CB08CE3003A8E3F /* EventDetailsViewController.swift */,
+				95A34AA51CB0B685003909E3 /* ProfileViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				952342A41CAD3F8300B52599 /* EventTableViewController.swift in Sources */,
 				95509BE21C990EFD000B569C /* Event.swift in Sources */,
 				95566B391C992CD3003A7A45 /* Model.swift in Sources */,
+				95A34AA61CB0B685003909E3 /* ProfileViewController.swift in Sources */,
 				952342A21CAD3E4A00B52599 /* EventTableViewCell.swift in Sources */,
 				95566B361C991F07003A7A45 /* User.swift in Sources */,
 				9592D8D61CB01793003A8E3F /* LoginViewController.swift in Sources */,

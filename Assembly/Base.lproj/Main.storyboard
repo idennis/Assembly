@@ -52,7 +52,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRQ-go-Q7U">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                             <subviews>
-                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverPhoto-default.png" translatesAutoresizingMaskIntoConstraints="NO" id="QVa-Y0-4H1">
+                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverPhoto-default" translatesAutoresizingMaskIntoConstraints="NO" id="QVa-Y0-4H1">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="KKd-vb-BO2"/>
@@ -98,7 +98,7 @@
                                     <outlet property="eventCoverPhoto" destination="QVa-Y0-4H1" id="sAL-n2-nt0"/>
                                     <outlet property="eventLocationLabel" destination="q4N-S6-dS0" id="0gs-PI-PiK"/>
                                     <outlet property="eventNameLabel" destination="PRf-yI-cgp" id="fEE-Ln-poB"/>
-                                    <segue destination="Nv5-FB-nfu" kind="showDetail" identifier="ShowDetail" id="61u-rf-MPU"/>
+                                    <segue destination="Nv5-FB-nfu" kind="show" identifier="ShowDetail" action="showDetailViewController:sender:" id="61u-rf-MPU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -179,16 +179,16 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="112" placeholderIntrinsicHeight="48" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="jFv-CK-bG1">
+                                    <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="112" placeholderIntrinsicHeight="48" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="jFv-CK-bG1">
                                         <rect key="frame" x="20" y="160" width="600" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="112" placeholderIntrinsicHeight="24" text="Event Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h89-0H-Rr5">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="112" placeholderIntrinsicHeight="24" text="Event Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h89-0H-Rr5">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="28"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="112" placeholderIntrinsicHeight="17" text="Hosted by User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzA-tt-X5z">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="112" placeholderIntrinsicHeight="17" text="Hosted by User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzA-tt-X5z">
                                                 <rect key="frame" x="0.0" y="31" width="600" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -235,7 +235,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverPhoto-default.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-py-ed9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coverPhoto-default" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-py-ed9">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="jc4-J1-zOv"/>
@@ -293,6 +293,7 @@
                         <outlet property="selectedEventCoverPhoto" destination="Hn2-py-ed9" id="Qes-2F-ZWE"/>
                         <outlet property="selectedEventDateLabel" destination="NEd-lr-80y" id="uHh-my-AD3"/>
                         <outlet property="selectedEventNameLabel" destination="h89-0H-Rr5" id="f3a-fO-dLr"/>
+                        <outlet property="selectedEventNavBar" destination="W4F-mF-xzB" id="M7i-BG-RHM"/>
                         <outlet property="selectedEventTimeLabel" destination="Tfd-u2-jAJ" id="gkl-Qe-HRE"/>
                     </connections>
                 </viewController>
@@ -455,10 +456,10 @@
             </objects>
             <point key="canvasLocation" x="3666" y="1461"/>
         </scene>
-        <!--View Controller-->
+        <!--PROFILE-->
         <scene sceneID="Xp1-Xg-wtd">
             <objects>
-                <viewController id="hpv-xz-z4f" sceneMemberID="viewController">
+                <viewController id="hpv-xz-z4f" customClass="ProfileViewController" customModule="Assembly" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Xr-Im-7nd"/>
                         <viewControllerLayoutGuide type="bottom" id="r5q-W7-0vn"/>
@@ -466,9 +467,60 @@
                     <view key="view" contentMode="scaleToFill" id="aw2-c0-jWZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxu-sJ-V1G">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Appleseed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzm-NW-uh5">
+                                        <rect key="frame" x="0.0" y="155" width="600" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePhoto-default" translatesAutoresizingMaskIntoConstraints="NO" id="Ogg-1X-KfE">
+                                        <rect key="frame" x="250" y="30" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="e4u-Ai-K4f"/>
+                                            <constraint firstAttribute="width" constant="100" id="w9I-jL-xoZ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7D-2D-k37">
+                                        <rect key="frame" x="0.0" y="184" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="i7D-2D-k37" firstAttribute="centerX" secondItem="bxu-sJ-V1G" secondAttribute="centerX" id="4pV-0d-TSa"/>
+                                    <constraint firstItem="i7D-2D-k37" firstAttribute="top" secondItem="mzm-NW-uh5" secondAttribute="bottom" constant="5" id="7bg-FI-rl0"/>
+                                    <constraint firstItem="mzm-NW-uh5" firstAttribute="width" secondItem="bxu-sJ-V1G" secondAttribute="width" id="7pR-ME-rBp"/>
+                                    <constraint firstItem="Ogg-1X-KfE" firstAttribute="centerX" secondItem="bxu-sJ-V1G" secondAttribute="centerX" id="8vI-CY-xg2"/>
+                                    <constraint firstItem="mzm-NW-uh5" firstAttribute="centerX" secondItem="bxu-sJ-V1G" secondAttribute="centerX" id="Jkb-fx-Wj5"/>
+                                    <constraint firstItem="Ogg-1X-KfE" firstAttribute="top" secondItem="bxu-sJ-V1G" secondAttribute="top" constant="30" id="aAR-bU-bye"/>
+                                    <constraint firstItem="i7D-2D-k37" firstAttribute="width" secondItem="bxu-sJ-V1G" secondAttribute="width" id="iyn-Pt-UMB"/>
+                                    <constraint firstItem="mzm-NW-uh5" firstAttribute="top" secondItem="Ogg-1X-KfE" secondAttribute="bottom" constant="25" id="s9F-Ts-F7y"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="bxu-sJ-V1G" firstAttribute="width" secondItem="aw2-c0-jWZ" secondAttribute="width" id="462-lJ-enW"/>
+                            <constraint firstItem="bxu-sJ-V1G" firstAttribute="top" secondItem="5Xr-Im-7nd" secondAttribute="bottom" id="BUB-Ih-Gbb"/>
+                            <constraint firstItem="r5q-W7-0vn" firstAttribute="top" secondItem="bxu-sJ-V1G" secondAttribute="bottom" id="CNV-Yq-ztm"/>
+                            <constraint firstItem="bxu-sJ-V1G" firstAttribute="centerX" secondItem="aw2-c0-jWZ" secondAttribute="centerX" id="MDl-qy-z0B"/>
+                            <constraint firstItem="bxu-sJ-V1G" firstAttribute="leading" secondItem="aw2-c0-jWZ" secondAttribute="leadingMargin" id="SmP-I6-k4z"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SmP-I6-k4z"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="oDQ-7V-80S"/>
+                    <navigationItem key="navigationItem" title="PROFILE" id="oDQ-7V-80S"/>
+                    <connections>
+                        <outlet property="profilePhoto" destination="Ogg-1X-KfE" id="ahr-gp-8Ac"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUR-Nj-9iB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -733,6 +785,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EnG-UN-MCa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -785,7 +838,8 @@
         <image name="Plus Filled" width="25" height="25"/>
         <image name="Star" width="25" height="25"/>
         <image name="Star Filled" width="25" height="25"/>
-        <image name="coverPhoto-default.png" width="640" height="202"/>
+        <image name="coverPhoto-default" width="640" height="202"/>
+        <image name="profilePhoto-default" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kYS-W0-jVp"/>

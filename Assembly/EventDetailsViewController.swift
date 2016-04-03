@@ -23,12 +23,18 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
 
     @IBOutlet weak var selectedEventCoverPhoto: UIImageView!
 
+    @IBOutlet weak var selectedEventNavBar: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let event = selectedEvent{
-            navigationItem.title = event.eventName
+            selectedEventNavBar.title = event.eventName
+            if (selectedEvent?.coverPhoto != nil) {
             selectedEventCoverPhoto.image = event.coverPhoto
+            }
+            else{
+                selectedEventCoverPhoto.image = UIImage(named:"coverPhoto-default")
+            }
             selectedEventNameLabel.text = event.eventName
             selectedEventAddressNameLabel.text = event.eventAddress?.locationName
             selectedEventAddressFullLabel.text = loadAddress()
