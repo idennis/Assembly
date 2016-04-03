@@ -15,6 +15,7 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var eventLocationLabel: UILabel!
     @IBOutlet weak var eventCoverPhoto: UIImageView!
     
+    // Custom cell view container for border drawing
     @IBOutlet weak var customCellView: UIView!
     
     

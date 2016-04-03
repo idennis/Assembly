@@ -23,9 +23,8 @@ struct event
 //    var hostUser:user
 //    var joinedUsers:[user]
     
-
-
-
+    
+    
     
     
     

@@ -197,14 +197,26 @@ class EventTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowDetail" {
+            let eventDetailsViewController = segue.destinationViewController as! EventDetailsViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedEventCell = sender as? EventTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedEventCell)!
+                let selectedEvent = events[indexPath.row]
+                eventDetailsViewController.selectedEvent = selectedEvent
+                
+            }
+        }
+
     }
-    */
+ 
 
 }
