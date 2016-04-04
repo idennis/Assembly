@@ -14,6 +14,8 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     var selectedEvent:event?
     
     @IBOutlet weak var selectedEventNameLabel: UILabel!
+    @IBOutlet weak var selectedEventHostUserLabel: UILabel!
+    
         
     @IBOutlet weak var selectedEventDateLabel: UILabel!
     @IBOutlet weak var selectedEventTimeLabel: UILabel!
@@ -38,6 +40,7 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             else{
                 selectedEventCoverPhoto.image = UIImage(named:"coverPhoto-default")
             }
+            selectedEventHostUserLabel.text = selectedEventHostUserLabel.text!.uppercaseString
             selectedEventNameLabel.text = event.eventName
             selectedEventAddressNameLabel.text = event.eventAddress?.locationName
             selectedEventAddressFullLabel.text = loadAddress()
