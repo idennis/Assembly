@@ -14,14 +14,21 @@ class PostEventViewController: UIViewController,UITextFieldDelegate,UINavigation
     // MARK: Properties
     
     
+    // Labels
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var eventLocationLabel: UILabel!
+    @IBOutlet weak var eventTimeDateLabel: UILabel!
+    @IBOutlet weak var eventDescriptionLabel: UILabel!
+    @IBOutlet weak var eventCoverPhotoLabel: UILabel!
     
+    
+    // Text Fields and Post button
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var eventLocationTextField: UITextField!
     @IBOutlet weak var eventTimeDateTextField: UITextField!
     @IBOutlet weak var eventDescriptionTextField: UITextField!
     @IBAction func eventCoverPhotoUploadButton(sender: UIButton) {
     }
-    
     @IBOutlet weak var postEventButton: UIBarButtonItem!
     
     
@@ -30,7 +37,7 @@ class PostEventViewController: UIViewController,UITextFieldDelegate,UINavigation
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setLabelsUppercase()
         eventNameTextField.delegate = self
         
         checkFieldsAreFilled()
@@ -38,6 +45,16 @@ class PostEventViewController: UIViewController,UITextFieldDelegate,UINavigation
         
     }
 
+    // Styling labels programmatically
+    func setLabelsUppercase(){
+        eventNameLabel.text = eventNameLabel.text!.uppercaseString
+        eventLocationLabel.text = eventLocationLabel.text!.uppercaseString
+        eventTimeDateLabel.text = eventTimeDateLabel.text!.uppercaseString
+        eventDescriptionLabel.text = eventDescriptionLabel.text!.uppercaseString
+        eventCoverPhotoLabel.text = eventCoverPhotoLabel.text!.uppercaseString
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

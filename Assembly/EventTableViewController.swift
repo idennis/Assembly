@@ -153,10 +153,12 @@ class EventTableViewController: UITableViewController {
         cell.eventLocationLabel.text = event.eventAddress?.locationName
         
         // Show default cover photo if no image uploaded
-        if (event.coverPhoto != nil){
+        if (event.coverPhoto == nil){
+            cell.eventCoverPhoto.image = UIImage(named:"coverPhoto-default")
+        }
+        else{
             cell.eventCoverPhoto.image = event.coverPhoto
         }
-        
         
         
         return cell
