@@ -20,6 +20,7 @@ class EventTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.translucent = false
         
         // Set table view to full screen width
         tableView.layoutMargins = UIEdgeInsetsZero
@@ -218,5 +219,18 @@ class EventTableViewController: UITableViewController {
 
     }
  
+    
+    
+    
+    @IBAction func unwindToEventList(sender:UIStoryboardSegue)
+    {
+        if let sourceViewController = sender.sourceViewController as? PostEventViewController, newEvent = sourceViewController.newEvent {
+            
+            let newIndexPath = NSIndexPath(forRow: events.count, inSection: 0)
+            events.append(newEvent)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+
+        }
+    }
 
 }

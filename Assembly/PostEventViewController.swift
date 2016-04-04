@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostEventViewController: UIViewController {
+class PostEventViewController: UIViewController,UITextFieldDelegate,UINavigationControllerDelegate {
 
     
     // MARK: Properties
@@ -21,15 +21,21 @@ class PostEventViewController: UIViewController {
     @IBOutlet weak var eventDescriptionTextField: UITextField!
     @IBAction func eventCoverPhotoUploadButton(sender: UIButton) {
     }
-    @IBAction func postEventButton(sender: UIBarButtonItem) {
-    }
     
+    @IBOutlet weak var postEventButton: UIBarButtonItem!
+    
+    
+    var newEvent:event?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eventNameTextField.delegate = self
+        
+        checkFieldsAreFilled()
 
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,21 +53,58 @@ class PostEventViewController: UIViewController {
         return true
     }
     
-
-    
-    
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func textFieldDidEndEditing(textField: UITextField) {
+        checkFieldsAreFilled()
     }
-    */
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        // Disable the Save button while editing.
+        postEventButton.enabled = false
+        
+    }
+    
+    func checkFieldsAreFilled() {
+        // Disable the Save button if the text field is empty.
+        let text = eventNameTextField.text
+        postEventButton.enabled = !text!.isEmpty
+    }
+
+    
+
+    
+    // MARK: - Navigation
+    
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // ===  check that the object referenced by the saveButton outlet is the same object instance as sender. If it is, the if statement is executed.
+        print("in prepareForSegue")
+        if postEventButton === sender {
+            print("post success")
+            let eventName = eventNameTextField.text
+            //let eventLocation = eventLocationTextField.text
+            //let eventTimeDate = eventTimeDateTextField.text
+            let eventDescription = eventDescriptionTextField.text
+            //let eventCoverPhoto = eventCoverPhotoUploadButton.image
+            
+            
+            // Set event
+            newEvent = event(eventName: eventName, eventDateTime: NSDate(), eventDescription: eventDescription, eventAddress: address(), eventCategories: ["sample"], coverPhoto: nil)
+                
+            
+        }
+    }
+
+    
+    
+    
 
 }

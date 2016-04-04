@@ -32,12 +32,17 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         if let event = selectedEvent{
             selectedEventNavBar.title = event.eventName
-            if (selectedEvent?.coverPhoto != nil) {
-            selectedEventCoverPhoto.image = event.coverPhoto
+            if (event.coverPhoto != nil){
+                print("if photo is not null")
+                selectedEventCoverPhoto.image = event.coverPhoto
             }
             else{
+                print("if photo is not found")
                 selectedEventCoverPhoto.image = UIImage(named:"coverPhoto-default")
             }
             selectedEventHostUserLabel.text = selectedEventHostUserLabel.text!.uppercaseString
