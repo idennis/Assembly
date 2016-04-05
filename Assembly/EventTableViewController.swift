@@ -20,6 +20,7 @@ class EventTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.translucent = false
         
         // Set table view to full screen width

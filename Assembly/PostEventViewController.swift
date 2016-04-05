@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostEventViewController: UIViewController,UITextFieldDelegate,UINavigationControllerDelegate {
+class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     // MARK: Properties
@@ -27,8 +27,8 @@ class PostEventViewController: UIViewController,UITextFieldDelegate,UINavigation
     @IBOutlet weak var eventLocationTextField: UITextField!
     @IBOutlet weak var eventTimeDateTextField: UITextField!
     @IBOutlet weak var eventDescriptionTextField: UITextField!
-    @IBAction func eventCoverPhotoUploadButton(sender: UIButton) {
-    }
+    
+    @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var postEventButton: UIBarButtonItem!
     
     
@@ -87,6 +87,33 @@ class PostEventViewController: UIViewController,UITextFieldDelegate,UINavigation
     }
 
     
+    
+    // MARK: Actions
+    
+    @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
+        print("safdsghrejt")
+        eventNameTextField.resignFirstResponder()
+        //view.endEditing(true)
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = .PhotoLibrary
+        imagePickerController.delegate = self
+        presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: UIImagePickerControllerDelegate
+
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        photoImageView.image = selectedImage
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
     
     // MARK: - Navigation
@@ -110,11 +137,11 @@ class PostEventViewController: UIViewController,UITextFieldDelegate,UINavigation
             //let eventLocation = eventLocationTextField.text
             //let eventTimeDate = eventTimeDateTextField.text
             let eventDescription = eventDescriptionTextField.text
-            //let eventCoverPhoto = eventCoverPhotoUploadButton.image
+            let eventCoverPhoto = photoImageView.image
             
             
             // Set event
-            newEvent = event(eventName: eventName, eventDateTime: NSDate(), eventDescription: eventDescription, eventAddress: address(), eventCategories: ["sample"], coverPhoto: nil)
+            newEvent = event(eventName: eventName, eventDateTime: NSDate(), eventDescription: eventDescription, eventAddress: address(), eventCategories: ["sample"], coverPhoto: eventCoverPhoto)
                 
             
         }
