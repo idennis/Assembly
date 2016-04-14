@@ -51,6 +51,10 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             selectedEventAddressFullLabel.text = loadAddress()
         }
         
+        
+        
+        
+        
         // Draw borders on views
         selectedEventDateTimeView.layer.borderWidth = 1
         selectedEventDateTimeView.layer.borderColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
@@ -105,6 +109,8 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         
         return catenate
     }
+    
+    
     
 
     override func didReceiveMemoryWarning() {
