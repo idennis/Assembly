@@ -137,7 +137,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui1-MP-ARE">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="45568AEF-2085-4032-B1E9-8FBEEFAF337D" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-py-ed9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CB9077DD-AD20-4347-BA5F-E6A17F167E71" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-py-ed9">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="jc4-J1-zOv"/>
@@ -941,7 +941,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="45568AEF-2085-4032-B1E9-8FBEEFAF337D" width="640" height="202">
+        <image name="Approval" width="25" height="25"/>
+        <image name="Approval Filled" width="25" height="25"/>
+        <image name="Assembly logo" width="144" height="29"/>
+        <image name="CB9077DD-AD20-4347-BA5F-E6A17F167E71" width="640" height="202">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -9614,9 +9617,6 @@ AAfuQQAH7kQAB+5JAAfuUQAH7lQAB+5mAAfuaQAH7m4AAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAA
 AAfucA
 </mutableData>
         </image>
-        <image name="Approval" width="25" height="25"/>
-        <image name="Approval Filled" width="25" height="25"/>
-        <image name="Assembly logo" width="144" height="29"/>
         <image name="Circled User Male" width="25" height="25"/>
         <image name="Circled User Male Filled" width="25" height="25"/>
         <image name="Plus" width="25" height="25"/>

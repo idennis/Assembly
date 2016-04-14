@@ -62,43 +62,9 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         selectedEventLocationView.layer.borderWidth = 1
         selectedEventLocationView.layer.borderColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
         joinButtonDefault()
-        setGradientOnView(selectedEventCoverPhoto)
-    }
-    
-    
-    
-    func setGradientOnView(view:UIView)
-        
-    {
-        
-        // Create a Gradient Layer and set the frame (size and position to the same as the image view).
-        
-        let gradient:CAGradientLayer = CAGradientLayer(layer:view.layer);
-        gradient.frame = view.frame;
-        
-    
-        // This is a Black to White gradient. Change these values to get desired effect.
-        let beginColor:UIColor = UIColor(red:0, green:0, blue:0, alpha: 0.5)
-        
-        // let endColor:UIColor = UIColor(red:0, green:255, blue:0, alpha: 0.25)
-        let endColor:UIColor = UIColor(red:255, green:255, blue:255, alpha: 0.25)
-        
-        // Color Array may contain more than 2 just colors. Depends on the effect being attempted.
-        let colorArray:[CGColor] = [beginColor.CGColor, endColor.CGColor];
-        
-        
-        
-        // Attach color array to gradient.
-        
-        gradient.colors = colorArray;
-        
-        
-        
-        // Finally, add gradient layer onto UIView.
-        
-        view.layer.insertSublayer(gradient, atIndex:0);
         
     }
+    
     
     
     
