@@ -28,67 +28,82 @@ class AssemblyUITests: XCTestCase {
         super.tearDown()
     }
     
-    func test1() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        
-        let app = XCUIApplication()
-        app.textFields["username"].tap()
-        app.textFields["username"]
-        app.secureTextFields["password"].tap()
-        app.secureTextFields["password"]
-        app.buttons["Login"].tap()
-        
-    }
     
-    func test2(){
-        
-        
-        let app = XCUIApplication()
-        app.textFields["username"].tap()
-        app.textFields["username"]
-        app.secureTextFields["password"].tap()
-        app.secureTextFields["password"]
-        app.typeText("\r")
-        
-        let plusButton = app.navigationBars["WHAT'S ON"].buttons["Plus"]
-        plusButton.tap()
-        
-        let postAnEventNavigationBar = app.navigationBars["POST AN EVENT"]
-        postAnEventNavigationBar.buttons["Cancel"].tap()
-        plusButton.tap()
-        
-        let element = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1)
-        let element2 = element.childrenMatchingType(.Other).elementBoundByIndex(0)
-        let textField = element2.childrenMatchingType(.TextField).element
-        textField.tap()
-        textField.tap()
-        element2.childrenMatchingType(.TextField).element
-        element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.TextField).element.tap()
-        postAnEventNavigationBar.buttons["Post"].tap()
-        
-        
-        
-        
-    }
-    
-    func test3(){
+    func testLogin(){
         
         
         let app = XCUIApplication()
         let usernameTextField = app.textFields["username"]
         usernameTextField.tap()
-        usernameTextField.tap()
-        app.textFields["username"]
-        app.secureTextFields["password"].tap()
-        app.secureTextFields["password"]
+        usernameTextField.typeText("Test")
+        
+        
+        let passwordTextField = app.secureTextFields["password"]
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("Test")
+        
+        
         app.buttons["Login"].tap()
         
         let tabBarsQuery = app.tabBars
+        
+        
         tabBarsQuery.buttons["Profile"].tap()
         tabBarsQuery.buttons["What's On"].tap()
+    }
+    
+    
+    
+
+    
+    func testEventDetail() {
+        // Use recording to get started writing UI tests.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
         
+        let app = XCUIApplication()
+        let usernameTextField = app.textFields["username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test")
+        
+        
+        let passwordTextField = app.secureTextFields["password"]
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("Test")
+        
+        
+        app.buttons["Login"].tap()
+        
+        
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["Queensberry Hotel"].tap()
         
     }
+    
+    
+    
+    func testPostCancelAndNavigation(){
+        
+        let app = XCUIApplication()
+        let usernameTextField = app.textFields["username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("Test")
+        
+        
+        let passwordTextField = app.secureTextFields["password"]
+        
+        passwordTextField.tap()
+        passwordTextField.typeText("Test")
+        
+        
+        app.buttons["Login"].tap()
+        
+        app.navigationBars["WHAT'S ON"].buttons["Plus"].tap()
+        app.navigationBars["POST AN EVENT"].buttons["Cancel"].tap()
+        app.tabBars.buttons["Profile"].tap()
+        
+    }
+    
+
 }
