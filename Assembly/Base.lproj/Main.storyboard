@@ -238,7 +238,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="54A7D3AC-03FC-4927-8B85-6E7BF79FB429" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-py-ed9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="449927B6-891A-42BC-8240-4692396286A5" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-py-ed9">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="jc4-J1-zOv"/>
@@ -938,7 +938,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="54A7D3AC-03FC-4927-8B85-6E7BF79FB429" width="640" height="202">
+        <image name="449927B6-891A-42BC-8240-4692396286A5" width="640" height="202">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
