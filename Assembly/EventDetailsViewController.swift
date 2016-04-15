@@ -38,8 +38,6 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         if let event = selectedEvent{
             selectedEventNavBar.title = event.eventName
             if (event.coverPhoto != nil){
@@ -55,6 +53,10 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             selectedEventAddressNameLabel.text = event.eventAddress?.locationName
             selectedEventAddressFullLabel.text = loadAddress()
         }
+        
+        
+        
+        
         
         // Draw borders on views
         selectedEventDateTimeView.layer.borderWidth = 1
@@ -125,6 +127,8 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         
         return catenate
     }
+    
+    
     
 
     override func didReceiveMemoryWarning() {
