@@ -33,8 +33,6 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         if let event = selectedEvent{
             selectedEventNavBar.title = event.eventName
             if (event.coverPhoto != nil){

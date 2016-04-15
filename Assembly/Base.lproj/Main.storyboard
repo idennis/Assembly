@@ -238,7 +238,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D6011CE7-5D09-4530-988E-23FC899319D2" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-py-ed9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="54A7D3AC-03FC-4927-8B85-6E7BF79FB429" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-py-ed9">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="jc4-J1-zOv"/>
@@ -349,6 +349,7 @@
                             <constraint firstAttribute="trailing" secondItem="ui1-MP-ARE" secondAttribute="trailing" id="8or-GY-gO0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p4F-3e-v6N" secondAttribute="trailing" constant="-20" id="Vye-5Q-8jo"/>
                             <constraint firstItem="p4F-3e-v6N" firstAttribute="leading" secondItem="dia-Sf-DXm" secondAttribute="leadingMargin" constant="-20" id="XA0-ml-pPg"/>
+                            <constraint firstItem="Hn2-py-ed9" firstAttribute="top" secondItem="Nri-dd-h1m" secondAttribute="bottom" id="Z5H-TP-gSK"/>
                             <constraint firstItem="pQD-Jx-bUT" firstAttribute="centerX" secondItem="dia-Sf-DXm" secondAttribute="centerX" id="ZmH-hA-CXP"/>
                             <constraint firstItem="pQD-Jx-bUT" firstAttribute="width" secondItem="dia-Sf-DXm" secondAttribute="width" multiplier="0.93" id="bXr-Aq-jal"/>
                             <constraint firstAttribute="leadingMargin" secondItem="wjc-UI-2Z4" secondAttribute="leading" id="fT0-M0-JJT"/>
@@ -362,6 +363,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Z5H-TP-gSK"/>
                                 <exclude reference="t75-Q4-vLe"/>
                                 <exclude reference="np6-CP-3QQ"/>
                             </mask>
@@ -936,12 +938,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Approval" width="25" height="25"/>
-        <image name="Approval Filled" width="25" height="25"/>
-        <image name="Assembly logo" width="144" height="29"/>
-        <image name="Circled User Male" width="25" height="25"/>
-        <image name="Circled User Male Filled" width="25" height="25"/>
-        <image name="D6011CE7-5D09-4530-988E-23FC899319D2" width="640" height="202">
+        <image name="54A7D3AC-03FC-4927-8B85-6E7BF79FB429" width="640" height="202">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -9614,6 +9611,11 @@ AAfuQQAH7kQAB+5JAAfuUQAH7lQAB+5mAAfuaQAH7m4AAAAAAAAEAQAAAAAAAABBAAAAAAAAAAAAAAAA
 AAfucA
 </mutableData>
         </image>
+        <image name="Approval" width="25" height="25"/>
+        <image name="Approval Filled" width="25" height="25"/>
+        <image name="Assembly logo" width="144" height="29"/>
+        <image name="Circled User Male" width="25" height="25"/>
+        <image name="Circled User Male Filled" width="25" height="25"/>
         <image name="Plus" width="25" height="25"/>
         <image name="Plus Filled" width="25" height="25"/>
         <image name="Star" width="25" height="25"/>
