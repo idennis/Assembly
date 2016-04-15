@@ -63,7 +63,7 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         selectedEventDateTimeView.layer.borderColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
         selectedEventLocationView.layer.borderWidth = 1
         selectedEventLocationView.layer.borderColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
-        joinButtonDefault()
+        
         
     }
     
@@ -71,13 +71,7 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     
     
     
-    func joinButtonDefault(){
-        //joinEventButton.layer.shadowColor = UIColor.blackColor().CGColor
-        joinEventButton.layer.shadowOffset = CGSizeMake(3, 3)
-        joinEventButton.layer.shadowRadius = 5
-        joinEventButton.layer.shadowOpacity = 0.3
-        
-    }
+    
 
     
     
