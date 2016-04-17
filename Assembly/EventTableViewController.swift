@@ -34,7 +34,7 @@ class EventTableViewController: UITableViewController {
         var event1:event = event()
         event1.eventName = "Web Development Meetup 2016"
         event1.eventDateTime = NSDate()
-        event1.eventDescription = "asdasdasdads"
+        event1.eventDescription = "Bacon ipsum dolor amet meatball porchetta tri-tip, kielbasa leberkas spare ribs sausage capicola jowl pig pastrami salami pork loin. Meatloaf pig t-bone kevin turkey tongue pancetta. Leberkas prosciutto ribeye tri-tip short loin. Hamburger short ribs biltong beef ribs cupim tail salami sausage andouille bresaola alcatra cow picanha porchetta. Tongue sirloin leberkas, chuck capicola filet mignon kielbasa porchetta pork chop spare ribs salami ham rump biltong. Ground round shank jowl, boudin tail corned beef meatball kevin sirloin t-bone. Kielbasa beef ribs turducken cow, rump pork tenderloin bresaola alcatra pastrami flank ribeye chicken landjaeger. "+"Bacon jowl ham venison. Bacon sirloin bresaola venison. Ball tip ground round pancetta pig chicken beef bacon ham hock prosciutto leberkas picanha capicola filet mignon frankfurter. Pork belly beef drumstick beef ribs pork, sirloin corned beef pork chop. Leberkas spare ribs pancetta, landjaeger porchetta bresaola prosciutto."
         event1.eventCategories = ["Technology", "Web"]
         
         var event1Address:address = address()

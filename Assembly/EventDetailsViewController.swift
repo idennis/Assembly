@@ -30,6 +30,7 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var selectedEventDateTimeView: UIView!
     @IBOutlet weak var selectedEventLocationView: UIView!
     
+    @IBOutlet weak var selectedEventDescription: UILabel!
     
     @IBOutlet weak var joinEventButton: UIButton!
     
@@ -52,11 +53,8 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             selectedEventNameLabel.text = event.eventName
             selectedEventAddressNameLabel.text = event.eventAddress?.locationName
             selectedEventAddressFullLabel.text = loadAddress()
+            selectedEventDescription.text = event.eventDescription
         }
-        
-        
-        
-        
         
         // Draw borders on views
         selectedEventDateTimeView.layer.borderWidth = 1
