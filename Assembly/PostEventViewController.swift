@@ -26,7 +26,7 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var eventLocationTextField: UITextField!
     @IBOutlet weak var eventTimeDateTextField: UITextField!
-    @IBOutlet weak var eventDescriptionTextField: UITextField!
+    @IBOutlet weak var eventDescriptionTextField: UITextView!
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var postEventButton: UIBarButtonItem!
@@ -41,7 +41,10 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
         eventNameTextField.delegate = self
         
         checkFieldsAreFilled()
-
+        
+        // Styling Text View
+        eventDescriptionTextField.layer.borderWidth = 0.50
+        eventDescriptionTextField.layer.borderColor = UIColor(red:0.80,green:0.80,blue:0.80,alpha:1.00).CGColor
         
     }
 
@@ -78,6 +81,7 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
         // Disable the Save button while editing.
         postEventButton.enabled = false
         
+        
     }
     
     func checkFieldsAreFilled() {
@@ -86,6 +90,20 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
         postEventButton.enabled = !text!.isEmpty
     }
 
+    
+    // Limits Event Name length to 50 characters
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if range.length + range.location > eventNameTextField.text?.characters.count
+        {
+            return false
+        }
+        let NewLength = (eventNameTextField.text?.characters.count)! + string.characters.count - range.length
+        
+        return NewLength <= 50
+        
+    }
+    
+    
     
     
     // MARK: Actions
@@ -137,8 +155,15 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
             //let eventLocation = eventLocationTextField.text
             //let eventTimeDate = eventTimeDateTextField.text
             let eventDescription = eventDescriptionTextField.text
-            let eventCoverPhoto = photoImageView.image
+            var eventCoverPhoto = UIImage(named:"coverPhoto-default")
             
+            if photoImageView.image == UIImage(named:"upload-cover-photo")
+            {
+                eventCoverPhoto = UIImage(named:"coverPhoto-default")
+            }
+            else{
+                eventCoverPhoto = photoImageView.image
+            }
             
             // Set event
             newEvent = event(eventName: eventName, eventDateTime: NSDate(), eventDescription: eventDescription, eventAddress: address(), eventCategories: ["sample"], coverPhoto: eventCoverPhoto)

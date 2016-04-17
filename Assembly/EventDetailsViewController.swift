@@ -130,6 +130,21 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    // MARK: ACTION
+    
+    @IBAction func tapJoinButton(sender: UIButton) {
+        UIView.animateWithDuration(0.2, animations: {
+            self.joinEventButton.backgroundColor = UIColor(red:0.17, green:0.17, blue:0.21, alpha:1.0)
+            //self.joinEventButton.titleLabel!.text = "JOINED"
+        }, completion: nil)
+        
+    }
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation

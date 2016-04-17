@@ -55,6 +55,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // Check of input fields are empty
         checkLoginEmpty()
+        
     }
 
     
@@ -74,19 +75,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-    
         // Check if first responder is username textfield, then jumps to password textfield
         if self.usernameTextField.isFirstResponder(){
-            
             self.passwordTextField.becomeFirstResponder()
         }
         // If first responder is password textfield, resign first responder and hide keyboard
         else{
-            
             textField.resignFirstResponder()
             return true
         }
-
         return false
     }
     
@@ -95,8 +92,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func userTappedBackground(sender: AnyObject) {
-        self.view.endEditing(true)
-        
+        //self.view.endEditing(true)
+        passwordTextField.resignFirstResponder()
+        usernameTextField.resignFirstResponder()
     }
     
     
@@ -106,9 +104,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signUpButton(sender: UIButton) {
     }
     @IBAction func passwordTextField(sender: UITextField) {
-        // If both text fields are filled, try to login
+        // If both text fields are filled, try to login automatically (DISABLED) 
         if (checkLoginEmpty() == false){
-            loginButton.sendActionsForControlEvents(.TouchUpInside)
+            //loginButton.sendActionsForControlEvents(.TouchUpInside)
         }
     }
     
