@@ -16,6 +16,7 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     // Labels
     @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var eventNameCharLabel: UILabel!
     @IBOutlet weak var eventLocationLabel: UILabel!
     @IBOutlet weak var eventTimeDateLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
@@ -92,13 +93,30 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
 
     
     // Limits Event Name length to 50 characters
+    // Changes character count label's colour in accordance to character count
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if range.length + range.location > eventNameTextField.text?.characters.count
         {
             return false
         }
-        let NewLength = (eventNameTextField.text?.characters.count)! + string.characters.count - range.length
         
+        let NewLength = (eventNameTextField.text?.characters.count)! + string.characters.count - range.length
+        if (NewLength==51){
+            eventNameCharLabel.textColor = UIColor.redColor()
+            eventNameCharLabel.text = "0 character left"
+        }
+        else if (NewLength == 49 || NewLength == 50){
+            eventNameCharLabel.text = "\(50-NewLength) character left"
+        }
+        else if (NewLength > 40){
+            eventNameCharLabel.textColor = UIColor(red:1.00, green:0.53, blue:0.00, alpha:1.0)
+            eventNameCharLabel.text = "\(50-NewLength) characters left"
+        }
+        else{
+            eventNameCharLabel.textColor = UIColor(red:0.48, green:0.48, blue:0.48, alpha:1.0)
+            eventNameCharLabel.text = "\(50-NewLength) characters left"
+        }
+        print(NewLength)
         return NewLength <= 50
         
     }
