@@ -479,7 +479,7 @@
                                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Enter event description here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g0Q-T5-VkS">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" text="Enter event description here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g0Q-T5-VkS">
                                                 <rect key="frame" x="0.0" y="21" width="560" height="100"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>

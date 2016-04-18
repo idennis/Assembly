@@ -79,9 +79,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if self.usernameTextField.isFirstResponder(){
             self.passwordTextField.becomeFirstResponder()
         }
-        // If first responder is password textfield, resign first responder and hide keyboard
+        // If first responder is password textfield, resign first responder, hide keyboard, and activate Login touch up inside action
         else{
             textField.resignFirstResponder()
+            loginButton.sendActionsForControlEvents(.TouchUpInside)
             return true
         }
         return false
@@ -104,10 +105,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signUpButton(sender: UIButton) {
     }
     @IBAction func passwordTextField(sender: UITextField) {
-        // If both text fields are filled, try to login automatically (DISABLED) 
-        if (checkLoginEmpty() == false){
-            //loginButton.sendActionsForControlEvents(.TouchUpInside)
-        }
     }
     
 }

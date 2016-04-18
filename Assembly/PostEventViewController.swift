@@ -39,6 +39,7 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabelsUppercase()
+        
         eventNameTextField.delegate = self
         
         checkFieldsAreFilled()
@@ -76,21 +77,42 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkFieldsAreFilled()
+        textField.resignFirstResponder()
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        // Disable the Save button while editing.
-        postEventButton.enabled = false
         
+        let datePicker = UIDatePicker()
+        datePicker.minuteInterval = 15
+        eventTimeDateTextField.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(PostEventViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
         
+    }
+    
+    
+    // MARK: Date Picker
+    func datePickerChanged(sender: UIDatePicker){
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = .ShortStyle
+        formatter.dateStyle = .LongStyle
+        eventTimeDateTextField.text = formatter.stringFromDate(sender.date)
     }
     
     func checkFieldsAreFilled() {
         // Disable the Save button if the text field is empty.
-        let text = eventNameTextField.text
-        postEventButton.enabled = !text!.isEmpty
+       // let text = eventNameTextField.text
+        
+        if (eventNameTextField.text!.isEmpty || eventTimeDateTextField.text!.isEmpty || eventDescriptionTextField.text!.isEmpty){
+            postEventButton.enabled = false
+        }
+        else{
+            postEventButton.enabled = true
+        }
+        
     }
 
+    
+    
     
     // Limits Event Name length to 50 characters
     // Changes character count label's colour in accordance to character count
@@ -173,6 +195,7 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
             //let eventLocation = eventLocationTextField.text
             //let eventTimeDate = eventTimeDateTextField.text
             let eventDescription = eventDescriptionTextField.text
+            //let eventDateTime = myDatePicker.date
             var eventCoverPhoto = UIImage(named:"coverPhoto-default")
             
             if photoImageView.image == UIImage(named:"upload-cover-photo")
