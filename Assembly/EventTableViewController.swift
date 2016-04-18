@@ -20,8 +20,8 @@ class EventTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.translucent = false
+        changeNavTitle()
         
         // Set table view to full screen width
         tableView.layoutMargins = UIEdgeInsetsZero
@@ -30,6 +30,18 @@ class EventTableViewController: UITableViewController {
         loadSampleEvents()
     }
 
+    
+    func changeNavTitle(){
+        let titleLabel = UILabel()
+        let colour = UIColor.whiteColor()
+        let attributes: [String : AnyObject] = [NSFontAttributeName: UIFont.systemFontOfSize(15, weight: UIFontWeightSemibold)
+, NSForegroundColorAttributeName: colour, NSKernAttributeName : 1.2]
+        titleLabel.attributedText = NSAttributedString(string: "WHAT'S ON", attributes: attributes)
+        titleLabel.sizeToFit()
+        self.navigationItem.titleView = titleLabel
+    }
+    
+    
     func loadSampleEvents(){
         var event1:event = event()
         event1.eventName = "Web Development Meetup 2016"

@@ -71,6 +71,7 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // Hide the keyboard.
+        checkFieldsAreFilled()
         textField.resignFirstResponder()
         return true
     }
@@ -100,7 +101,6 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     func checkFieldsAreFilled() {
         // Disable the Save button if the text field is empty.
-       // let text = eventNameTextField.text
         
         if (eventNameTextField.text!.isEmpty || eventTimeDateTextField.text!.isEmpty || eventDescriptionTextField.text!.isEmpty){
             postEventButton.enabled = false

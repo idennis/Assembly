@@ -8,10 +8,11 @@
 
 import UIKit
 
-class EventDetailsViewController: UIViewController, UINavigationControllerDelegate {
+class EventDetailsViewController: UIViewController, UINavigationControllerDelegate, UIScrollViewDelegate {
 
     
     var selectedEvent:event?
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var selectedEventNameLabel: UILabel!
     @IBOutlet weak var selectedEventHostUserLabel: UILabel!
@@ -54,6 +55,9 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             selectedEventAddressNameLabel.text = event.eventAddress?.locationName
             selectedEventAddressFullLabel.text = loadAddress()
             selectedEventDescription.text = event.eventDescription
+            
+            scrollView.delegate = self
+
         }
         
         // Draw borders on views
@@ -139,6 +143,31 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         }, completion: nil)
         
     }
+    
+    
+    
+    
+    func scrollViewDidScroll(sender: UIScrollView){
+//        var offset = scrollView.contentOffset.y
+//        var headerTransform = CATransform3DIdentity
+//        print("scrolllingggg")
+//        // PULL DOWN -----------------
+//        
+//        if offset < 0 {
+//            
+//            let headerScaleFactor:CGFloat = -(offset) / selectedEventCoverPhoto.bounds.height
+//            let headerSizevariation = ((selectedEventCoverPhoto.bounds.height * (1.0 + headerScaleFactor)) - selectedEventCoverPhoto.bounds.height)/2.0
+//            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+//            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
+//            
+//            selectedEventCoverPhoto.layer.transform = headerTransform
+//        }
+//        // Apply Transformations
+//        selectedEventCoverPhoto.layer.transform = headerTransform
+    }
+    
+    
+    
     
     
     

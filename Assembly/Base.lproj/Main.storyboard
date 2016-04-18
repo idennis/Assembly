@@ -368,6 +368,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="joinEventButton" destination="pQD-Jx-bUT" id="yGG-Sb-7Z3"/>
+                        <outlet property="scrollView" destination="ui1-MP-ARE" id="MKX-gP-1yv"/>
                         <outlet property="selectedEventAddressFullLabel" destination="oLc-W3-tfJ" id="YVS-QK-ipQ"/>
                         <outlet property="selectedEventAddressNameLabel" destination="NxG-PE-sei" id="mVy-Xb-xEb"/>
                         <outlet property="selectedEventCoverPhoto" destination="Hn2-py-ed9" id="Qes-2F-ZWE"/>
