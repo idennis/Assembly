@@ -78,11 +78,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Check if first responder is username textfield, then jumps to password textfield
         if self.usernameTextField.isFirstResponder(){
             self.passwordTextField.becomeFirstResponder()
+            checkLoginEmpty()
         }
         // If first responder is password textfield, resign first responder, hide keyboard, and activate Login touch up inside action
         else{
             textField.resignFirstResponder()
-            loginButton.sendActionsForControlEvents(.TouchUpInside)
+            
+            if checkLoginEmpty() == false{
+                print("check empty fields")
+                loginButton.sendActionsForControlEvents(.TouchUpInside)
+            }
             return true
         }
         return false
