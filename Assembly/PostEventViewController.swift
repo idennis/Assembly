@@ -70,23 +70,30 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Hide the keyboard.
+        print("Return button pressed")
         checkFieldsAreFilled()
+        // Hide the keyboard.
         textField.resignFirstResponder()
+        
         return true
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
+        print("End of edit")
         checkFieldsAreFilled()
         textField.resignFirstResponder()
+        
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        print("Start editing text field")
+
         
-        let datePicker = UIDatePicker()
-        datePicker.minuteInterval = 15
-        eventTimeDateTextField.inputView = datePicker
-        datePicker.addTarget(self, action: #selector(PostEventViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
+            let datePicker = UIDatePicker()
+            datePicker.minuteInterval = 15
+            eventTimeDateTextField.inputView = datePicker
+            datePicker.addTarget(self, action: #selector(PostEventViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
+        
         
     }
     
