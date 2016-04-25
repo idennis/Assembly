@@ -27,6 +27,34 @@
             </objects>
             <point key="canvasLocation" x="2042" y="1301"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="UEL-25-48T">
+            <objects>
+                <tableViewController id="YFh-7I-SgV" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iaJ-Im-bSG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IFb-bV-cPW">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IFb-bV-cPW" id="7lX-Ku-rDr">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YFh-7I-SgV" id="XjE-LH-T1s"/>
+                            <outlet property="delegate" destination="YFh-7I-SgV" id="iKC-Q8-bB5"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SW4-0y-Yk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-770" y="1361"/>
+        </scene>
         <!--WHAT'S ON-->
         <scene sceneID="7EI-U8-9Ac">
             <objects>
@@ -106,7 +134,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="WHAT'S ON" id="nsP-l9-zTq">
                         <barButtonItem key="backBarButtonItem" title=" " id="bKh-sa-IpM"/>
-                        <barButtonItem key="leftBarButtonItem" image="Search" id="tEr-l4-inT"/>
+                        <barButtonItem key="leftBarButtonItem" image="Search" id="tEr-l4-inT">
+                            <connections>
+                                <action selector="searchButton:" destination="9SR-fH-ift" id="EpF-jO-35e"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Plus" id="muH-xL-jP5">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -294,6 +326,7 @@
                                     <constraint firstItem="p4F-3e-v6N" firstAttribute="leading" secondItem="ui1-MP-ARE" secondAttribute="leading" id="Nix-so-smD"/>
                                     <constraint firstItem="p4F-3e-v6N" firstAttribute="leading" secondItem="FV7-0r-yep" secondAttribute="leading" id="Rck-vl-coG"/>
                                     <constraint firstItem="ajd-eJ-5oe" firstAttribute="top" secondItem="p4F-3e-v6N" secondAttribute="bottom" constant="25" id="UTY-Zg-gos"/>
+                                    <constraint firstAttribute="bottom" secondItem="r88-eo-urK" secondAttribute="bottom" constant="83" id="Uww-Yu-lmh"/>
                                     <constraint firstItem="pQD-Jx-bUT" firstAttribute="top" secondItem="Hn2-py-ed9" secondAttribute="bottom" constant="10" id="ZpY-Qx-4GN"/>
                                     <constraint firstItem="Hn2-py-ed9" firstAttribute="width" secondItem="ui1-MP-ARE" secondAttribute="width" id="Zyz-15-qdc"/>
                                     <constraint firstItem="jFv-CK-bG1" firstAttribute="top" secondItem="ui1-MP-ARE" secondAttribute="top" constant="160" id="asu-pr-HxA"/>
@@ -302,7 +335,6 @@
                                     <constraint firstAttribute="trailing" secondItem="jFv-CK-bG1" secondAttribute="trailing" constant="20" id="fyx-5e-MFH"/>
                                     <constraint firstAttribute="trailing" secondItem="p4F-3e-v6N" secondAttribute="trailing" id="mHK-bI-sHm"/>
                                     <constraint firstItem="r88-eo-urK" firstAttribute="leading" secondItem="ui1-MP-ARE" secondAttribute="leading" constant="21" id="qF3-zc-qlp"/>
-                                    <constraint firstAttribute="bottom" secondItem="r88-eo-urK" secondAttribute="bottom" constant="34" id="r0p-yn-2dz"/>
                                     <constraint firstItem="rQF-RF-jXG" firstAttribute="height" secondItem="Hn2-py-ed9" secondAttribute="height" id="rBo-n7-Dsj"/>
                                     <constraint firstItem="wjc-UI-2Z4" firstAttribute="top" secondItem="pQD-Jx-bUT" secondAttribute="bottom" constant="20" id="rSG-bn-Yc9"/>
                                     <constraint firstItem="jFv-CK-bG1" firstAttribute="centerX" secondItem="ui1-MP-ARE" secondAttribute="centerX" constant="20" id="ryU-kF-1tL"/>
