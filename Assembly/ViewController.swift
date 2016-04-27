@@ -12,25 +12,11 @@ class ViewController: UIViewController {
 
     
     // MARK: Properties
-    //var events = [Event]()
 
-    
-    
-    
-
-    func loadEvent()
-    {
-
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var myModel: Model?
-        myModel = Model()
-        print(myModel)
-//        print(myModel?.events[0])
-//        print(myModel?.events[1])
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -56,6 +56,8 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             selectedEventAddressFullLabel.text = loadAddress()
             selectedEventDescription.text = event.eventDescription
             
+ //           selectedEventDateLabel.text = loadAndFormatDate(event.eventDateTime)
+            
             scrollView.delegate = self
 
         }
@@ -122,6 +124,12 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         }
         
         return catenate
+    }
+    
+    
+    
+    func loadAndFormatDate(eventDateTime:String){
+        
     }
     
     
