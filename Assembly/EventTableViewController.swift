@@ -26,8 +26,7 @@ class EventTableViewController: UITableViewController {
     var groupPhotoDictionaryArray:[[String:AnyObject]] = []
     
     var imageURL:String?
-    
-    
+
     
     
     
@@ -43,12 +42,13 @@ class EventTableViewController: UITableViewController {
             tableView.separatorInset = UIEdgeInsetsZero
         
         
+
         getNewEvents()
         
         
     }
 
-    
+    // MARK: - Style
     func changeNavTitle(){
         let titleLabel = UILabel()
         let colour = UIColor.whiteColor()
@@ -59,17 +59,14 @@ class EventTableViewController: UITableViewController {
         self.navigationItem.titleView = titleLabel
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
 
     
     
     // MARK: - Table view data source
     func getNewEvents(){
         // Data load-ins from Meetup.com
-        Alamofire.request(.GET, "https://api.meetup.com/2/open_events?key="+APIKEY+"&sign=true&photo-host=secure&host=public&country=AU&city=melbourne&state=VC&time=,5w&group_photo&page=20").responseJSON { (responseData) -> Void in
+        Alamofire.request(.GET, "https://api.meetup.com/2/open_events?key="+APIKEY+"&sign=true&photo-host=secure&host=public&country=AU&city=melbourne&state=VC&time=,5w&desc=true&group_photo&page=20").responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 print("Success")
                 
@@ -178,7 +175,7 @@ class EventTableViewController: UITableViewController {
         
         
         
-//        let baseURL = "http://photos2.meetupstatic.com/photos/event/3/9/1/8/"
+//        let baseURL = ""
 //        let picURL = dict["backdrop_path"] as? String
 //        let fullPath = baseURL + picURL!
 //        let url = NSURL(string: fullPath)
@@ -302,4 +299,10 @@ class EventTableViewController: UITableViewController {
 //        }
 //    }
 
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }
