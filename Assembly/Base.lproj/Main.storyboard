@@ -66,16 +66,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtm-YV-cQ5">
-                                                    <rect key="frame" x="450" y="108" width="150" height="82"/>
+                                                    <rect key="frame" x="450" y="112" width="150" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMa-MH-SJJ">
-                                                            <rect key="frame" x="56.5" y="0.0" width="38" height="23"/>
+                                                            <rect key="frame" x="56" y="0.0" width="38" height="23"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ooc-54-rRn">
-                                                            <rect key="frame" x="62" y="26" width="26.5" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ooc-54-rRn">
+                                                            <rect key="frame" x="62" y="25" width="26.5" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="T98-Lo-mHf"/>
                                                             </constraints>
@@ -86,10 +86,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="DMa-MH-SJJ" firstAttribute="top" secondItem="gtm-YV-cQ5" secondAttribute="top" id="Bae-OK-Udp"/>
+                                                        <constraint firstItem="DMa-MH-SJJ" firstAttribute="top" secondItem="gtm-YV-cQ5" secondAttribute="top" id="3pT-Cf-o4B"/>
                                                         <constraint firstItem="Ooc-54-rRn" firstAttribute="centerX" secondItem="gtm-YV-cQ5" secondAttribute="centerX" id="W3o-3j-ouR"/>
                                                         <constraint firstItem="DMa-MH-SJJ" firstAttribute="centerX" secondItem="gtm-YV-cQ5" secondAttribute="centerX" id="Y4l-dO-gqq"/>
-                                                        <constraint firstItem="Ooc-54-rRn" firstAttribute="top" secondItem="DMa-MH-SJJ" secondAttribute="bottom" constant="5" id="loM-jo-rFd"/>
+                                                        <constraint firstItem="Ooc-54-rRn" firstAttribute="top" secondItem="DMa-MH-SJJ" secondAttribute="bottom" constant="2" id="loM-jo-rFd"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -101,10 +101,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="gtm-YV-cQ5" secondAttribute="trailing" id="3Fz-Fg-2AB"/>
                                                 <constraint firstItem="gtm-YV-cQ5" firstAttribute="top" secondItem="QVa-Y0-4H1" secondAttribute="bottom" id="52G-DN-wGc"/>
                                                 <constraint firstItem="gtm-YV-cQ5" firstAttribute="width" secondItem="PRQ-go-Q7U" secondAttribute="width" multiplier="0.25" id="6jf-qn-HtF"/>
-                                                <constraint firstAttribute="bottom" secondItem="gtm-YV-cQ5" secondAttribute="bottom" constant="10" id="7Er-6a-ahu"/>
+                                                <constraint firstAttribute="bottom" secondItem="gtm-YV-cQ5" secondAttribute="bottom" multiplier="1.1" id="7Er-6a-ahu"/>
                                                 <constraint firstItem="QVa-Y0-4H1" firstAttribute="leading" secondItem="PRQ-go-Q7U" secondAttribute="leading" id="9Pg-Wt-qxx"/>
                                                 <constraint firstItem="PRf-yI-cgp" firstAttribute="top" secondItem="QVa-Y0-4H1" secondAttribute="bottom" constant="8" id="L1m-GQ-hR7"/>
-                                                <constraint firstItem="gtm-YV-cQ5" firstAttribute="top" secondItem="QVa-Y0-4H1" secondAttribute="bottom" constant="8" id="T2y-s1-9G8"/>
+                                                <constraint firstItem="gtm-YV-cQ5" firstAttribute="top" secondItem="QVa-Y0-4H1" secondAttribute="bottom" multiplier="1.12" id="T2y-s1-9G8"/>
                                                 <constraint firstItem="PRf-yI-cgp" firstAttribute="width" secondItem="PRQ-go-Q7U" secondAttribute="width" multiplier="0.7" id="U31-zs-Xb6"/>
                                                 <constraint firstItem="q4N-S6-dS0" firstAttribute="top" secondItem="PRf-yI-cgp" secondAttribute="bottom" constant="5" id="XMG-Kp-evr"/>
                                                 <constraint firstItem="DMa-MH-SJJ" firstAttribute="top" secondItem="QVa-Y0-4H1" secondAttribute="bottom" constant="8" id="cvG-iW-YBb"/>
@@ -117,6 +117,7 @@
                                                 <mask key="constraints">
                                                     <exclude reference="52G-DN-wGc"/>
                                                     <exclude reference="hjy-k0-qen"/>
+                                                    <exclude reference="cvG-iW-YBb"/>
                                                 </mask>
                                             </variation>
                                         </view>

@@ -48,7 +48,7 @@ class EventTableViewCell: UITableViewCell {
         // Draws date view border
         let border = CALayer()
         let width = CGFloat(1.0)
-        border.borderColor = UIColor.init(red: 100/255, green: 100/255, blue: 100/255, alpha: 0.6).CGColor
+        border.borderColor = UIColor.init(red: 100/255, green: 100/255, blue: 100/255, alpha: 0.5).CGColor
         border.frame = CGRectMake(0, 0, 1, dateContainerView.frame.size.height)
         border.borderWidth = width
         dateContainerView.layer.addSublayer(border)

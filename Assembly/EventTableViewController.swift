@@ -79,7 +79,7 @@ class EventTableViewController: UITableViewController {
                 if let data = swiftyJsonVar["results"].arrayObject{
                     
                     self.eventsDictionaryArray = data as! [[String:AnyObject]]
-                    
+                    print(self.eventsDictionaryArray)
                 }
                 if self.eventsDictionaryArray.count > 0{
                     self.tableView.reloadData()
