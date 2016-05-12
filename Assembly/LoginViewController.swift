@@ -12,7 +12,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     // MARK: Model
-    var model = Model.sharedInstance
+    //var model = Model.sharedInstance
     
     // MARK: Properties
     @IBOutlet weak var assemblyLogo: UIImageView!
