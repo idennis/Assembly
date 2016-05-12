@@ -28,6 +28,9 @@ class EventTableViewController: UITableViewController {
     var imageURL:String?
     
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,7 +69,7 @@ class EventTableViewController: UITableViewController {
     // MARK: - Table view data source
     func getNewEvents(){
         // Data load-ins from Meetup.com
-        Alamofire.request(.GET, "https://api.meetup.com/2/open_events?key="+APIKEY+"&sign=true&photo-host=secure&host=public&country=AU&city=melbourne&state=VC&time=,5w&group_photo&page=10").responseJSON { (responseData) -> Void in
+        Alamofire.request(.GET, "https://api.meetup.com/2/open_events?key="+APIKEY+"&sign=true&photo-host=secure&host=public&country=AU&city=melbourne&state=VC&time=,5w&group_photo&page=20").responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 print("Success")
                 
@@ -103,16 +106,16 @@ class EventTableViewController: UITableViewController {
             if let JsonVar = response.result.value {
                 if let groupData = JsonVar["results"]{
                     self.groupPhotoDictionaryArray = groupData as! [[String:AnyObject]]
-                    print ("in getGroupImageURL")
+//                    print ("in getGroupImageURL")
                     self.imageURL = self.groupPhotoDictionaryArray[0]["group_photo"]?["photo_link"] as? String
-                    print("IN IF STATEMENT")
-                    print(self.imageURL)
+//                    print("IN IF STATEMENT")
+//                    print(self.imageURL)
                 }
             }
 
         }
-        print("OUTSIDE IF")
-        print(self.imageURL)
+//        print("OUTSIDE IF")
+//        print(self.imageURL)
     }
     
     
@@ -144,6 +147,8 @@ class EventTableViewController: UITableViewController {
             cell.eventLocationLabel?.text = dict["venue"]?["name"] as? String
         }
 
+        loadAndFormatDate((dict["time"] as? Int)!, cell: cell)
+        
         
         
         // Decode URL to Image
@@ -155,11 +160,11 @@ class EventTableViewController: UITableViewController {
         //print ("URL: ",url)
         
         if url != nil{
-            print("URL is NOT NULL")
+//            print("URL is NOT NULL")
             let data = NSData(contentsOfURL: url!)
             
             if data != nil {
-                print("DATA IS NOT NULL")
+//                print("DATA IS NOT NULL")
                 cell.eventCoverPhoto.image = UIImage(data:data!)
             }
         }
@@ -189,11 +194,6 @@ class EventTableViewController: UITableViewController {
     
     
 
-    
-    
-    
-    
-    
     // Load Table Cell contents
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -229,6 +229,36 @@ class EventTableViewController: UITableViewController {
         return EventTableViewCell()
     }
 
+    
+    
+    // MARK: Date Formatting
+    func loadAndFormatDate(time:Int,cell:EventTableViewCell){
+        // Conversion from Epoch time to Gregorian calendar time
+        let intTimeValue:Int = time
+        let ti = NSTimeInterval(intTimeValue)
+        
+        // Divided by milliseconds as given from Meetup's Database
+        let date = NSDate(timeIntervalSince1970: ti/1000.0)
+        
+        // Human readable date, nicely formatted :)
+        let dateStringFormatter = NSDateFormatter()
+        dateStringFormatter.dateFormat = "MMMM dd"
+        let dateString = dateStringFormatter.stringFromDate(date)
+        
+        let dayStringFormatter = NSDateFormatter()
+        dayStringFormatter.dateFormat = "E"
+        let dayString = dayStringFormatter.stringFromDate(date)
+        
+        
+        cell.eventDayLabel.text = dayString.uppercaseString
+        cell.eventDateLabel.text = dateString
+        
+    }
+
+    
+    
+    
+    
 
     
     // MARK: - Navigation

@@ -65,7 +65,16 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             
             
             
-            //selectedEventDateLabel.text = loadAndFormatDate(event.eventDateTime)
+            
+            let eventTime = (event["time"] as? Int)!
+            if (event["duration"] != nil){
+                let eventDuration = (event["duration"] as? Int)!
+                loadAndFormatDate(eventTime, duration: eventDuration)
+            }
+            else{
+                loadAndFormatDate(eventTime, duration:0)
+            }
+            //selectedEventDateLabel.text = loadAndFormatDate(time)
             
             
             
@@ -101,16 +110,63 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     
     
     
+    // MARK: Date Formatting
+    func loadAndFormatDate(time:Int, duration:Int){
+        // Conversion from Epoch time to Gregorian calendar time
+        let intTimeValue:Int = time
+        let ti = NSTimeInterval(intTimeValue)
+        
+        // Divided by milliseconds as given from Meetup's Database
+        let date = NSDate(timeIntervalSince1970: ti/1000.0)
+        
+        
+        // Conversion from ms to hours (Event Duration)
+        let intDurationValue:Int = duration
+        
+        // Add duration of event in ms to event start time since epoch
+        let intEventEndTime:Int = intTimeValue + intDurationValue
+        
+        let durationInterval = NSTimeInterval(intEventEndTime)
+        // Convert end time to readable time format
+        let endDate = NSDate(timeIntervalSince1970: durationInterval/1000.0)
+        
+        let endTimeStringFormatter = NSDateFormatter()
+        endTimeStringFormatter.dateFormat = "h:mmaa"
+        let endTimeString = endTimeStringFormatter.stringFromDate(endDate)
 
-    
-    
-    
-    // MARK: Load in data
-    
-    
-    
-    
-    func loadAndFormatDate(eventDateTime:String){
+//            let calendar = NSCalendar.currentCalendar()
+        // Split date into components
+//            let components = calendar.components([.Day,.Month,.Year], fromDate: date)
+//            
+//            let year = components.year
+//            let month = components.month
+//            let day = components.day
+//            
+//            let allMonths = formatter.shortMonthSymbols
+//            let monthEnglish = allMonths[month-1]
+//            print (year,monthEnglish,day)
+
+        
+        // Human readable date, nicely formatted :)
+        let dateStringFormatter = NSDateFormatter()
+        dateStringFormatter.dateFormat = "EEEE, dd MMMM yyyy"
+        let dateString = dateStringFormatter.stringFromDate(date)
+        
+        let timeStringFormatter = NSDateFormatter()
+        timeStringFormatter.dateFormat = "h:mmaa"
+        let timeString = timeStringFormatter.stringFromDate(date)
+        
+        selectedEventDateLabel.text = dateString
+        
+        
+        // If no duration supplied, display "From <time>" instead
+        if (duration == 0){
+            selectedEventTimeLabel.text = "From "+timeString
+        }
+        else{
+            selectedEventTimeLabel.text = timeString+" - "+endTimeString
+        }
+        
         
     }
     
