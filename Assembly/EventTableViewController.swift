@@ -92,8 +92,11 @@ class EventTableViewController: UITableViewController {
     }
     
     
-    
-    func getGroupName(groupID:Int64) -> String{
+    //
+    // MARK: Group Name
+    //
+    //
+    func getGroupImageURL(groupID:Int64) -> String{
         let stringID = String(groupID)
         var imageURL:String? = ""
         Alamofire.request(.GET, "https://api.meetup.com/2/groups?&sign=true&photo-host=public&group_id="+stringID+"&page=20&key="+APIKEY).responseJSON { (response) in
@@ -141,24 +144,27 @@ class EventTableViewController: UITableViewController {
         else{
             cell.eventLocationLabel?.text = dict["venue"]?["name"] as? String
         }
- 
-//        print("Image URL:: "+getGroupName(groupID))
-//        let fullPath = String(self.ImageURL)
-//        print("FULL PATH: "+fullPath)
-//        
-//        let url = NSURL(string:fullPath)
-//        print ("URL: ",url)
-//        
-//        if url != nil{
-//            print("URL is NOT NULL")
-//            let data = NSData(contentsOfURL: url!)
-//            
-//            if data != nil {
-//                print("DATA IS NOT NULL")
-//                cell.eventCoverPhoto.image = UIImage(data:data!)
-//            }
-//        }
-//        
+
+        
+        
+        // Decode URL to Image
+        print("Image URL:: "+getGroupImageURL(groupID))
+        let fullPath = String(self.ImageURL)
+        print("FULL PATH: "+fullPath)
+        
+        let url = NSURL(string:fullPath)
+        print ("URL: ",url)
+        
+        if url != nil{
+            print("URL is NOT NULL")
+            let data = NSData(contentsOfURL: url!)
+            
+            if data != nil {
+                print("DATA IS NOT NULL")
+                cell.eventCoverPhoto.image = UIImage(data:data!)
+            }
+        }
+        
         
         
         
