@@ -25,8 +25,8 @@ class EventTableViewController: UITableViewController {
     var eventsDictionaryArray:[[String:AnyObject]] = []
     var groupPhotoDictionaryArray:[[String:AnyObject]] = []
     
-    // ImageURL of event
-    var ImageURL:String?? = ""
+    var imageURL:String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,7 @@ class EventTableViewController: UITableViewController {
     // MARK: - Table view data source
     func getNewEvents(){
         // Data load-ins from Meetup.com
-        Alamofire.request(.GET, "https://api.meetup.com/2/open_events?key="+APIKEY+"&sign=true&photo-host=secure&host=public&country=AU&city=melbourne&state=VC&time=,1w&group_photo&page=20").responseJSON { (responseData) -> Void in
+        Alamofire.request(.GET, "https://api.meetup.com/2/open_events?key="+APIKEY+"&sign=true&photo-host=secure&host=public&country=AU&city=melbourne&state=VC&time=,5w&group_photo&page=10").responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 print("Success")
                 
@@ -74,6 +74,7 @@ class EventTableViewController: UITableViewController {
                 
                 
                 if let data = swiftyJsonVar["results"].arrayObject{
+                    
                     self.eventsDictionaryArray = data as! [[String:AnyObject]]
                     
                 }
@@ -92,28 +93,26 @@ class EventTableViewController: UITableViewController {
     }
     
     
-    //
     // MARK: Group Name
-    //
-    //
-    func getGroupImageURL(groupID:Int64) -> String{
+    func getGroupImageURL(groupID:Int64){
         let stringID = String(groupID)
-        var imageURL:String? = ""
+        //var imageURL:String? = ""
+        
         Alamofire.request(.GET, "https://api.meetup.com/2/groups?&sign=true&photo-host=public&group_id="+stringID+"&page=20&key="+APIKEY).responseJSON { (response) in
             
             if let JsonVar = response.result.value {
                 if let groupData = JsonVar["results"]{
                     self.groupPhotoDictionaryArray = groupData as! [[String:AnyObject]]
-                    print (" in here")
-                    
-                    return imageURL = (self.groupPhotoDictionaryArray[0]["group_photo"]?["photo_link"] as? String)
+                    print ("in getGroupImageURL")
+                    self.imageURL = self.groupPhotoDictionaryArray[0]["group_photo"]?["photo_link"] as? String
+                    print("IN IF STATEMENT")
+                    print(self.imageURL)
                 }
-                
             }
 
         }
-        
-        return imageURL!
+        print("OUTSIDE IF")
+        print(self.imageURL)
     }
     
     
@@ -148,12 +147,12 @@ class EventTableViewController: UITableViewController {
         
         
         // Decode URL to Image
-        print("Image URL:: "+getGroupImageURL(groupID))
-        let fullPath = String(self.ImageURL)
-        print("FULL PATH: "+fullPath)
+        getGroupImageURL(groupID)
+        let fullPath = String(self.imageURL)
+        //print("FULL PATH: "+fullPath)
         
         let url = NSURL(string:fullPath)
-        print ("URL: ",url)
+        //print ("URL: ",url)
         
         if url != nil{
             print("URL is NOT NULL")
@@ -241,24 +240,24 @@ class EventTableViewController: UITableViewController {
     
     
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//        if segue.identifier == "ShowDetail" {
-//            let eventDetailsViewController = segue.destinationViewController as! EventDetailsViewController
-//            
-//            // Get the cell that generated this segue.
-//            if let selectedEventCell = sender as? EventTableViewCell {
-//                let indexPath = tableView.indexPathForCell(selectedEventCell)!
-//                let selectedEvent = events[indexPath.row]
-//                eventDetailsViewController.selectedEvent = selectedEvent
-//                
-//            }
-//        }
+    //In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowDetail" {
+            let eventDetailsViewController = segue.destinationViewController as! EventDetailsViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedEventCell = sender as? EventTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedEventCell)!
+                let selectedEvent = eventsDictionaryArray[indexPath.row]
+                eventDetailsViewController.selectedEvent = selectedEvent
+                
+            }
+        }
+
+    }
 //
-//    }
-// 
     
 //    
 //    

@@ -11,7 +11,7 @@ import UIKit
 class EventDetailsViewController: UIViewController, UINavigationControllerDelegate, UIScrollViewDelegate {
 
     
-    var selectedEvent:event?
+    var selectedEvent:[String:AnyObject]?
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var selectedEventNameLabel: UILabel!
@@ -41,22 +41,47 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         super.viewDidLoad()
         
         if let event = selectedEvent{
-            selectedEventNavBar.title = event.eventName
-            if (event.coverPhoto != nil){
-                print("if photo is not null")
-                selectedEventCoverPhoto.image = event.coverPhoto
+            selectedEventNavBar.title = (event["name"] as? String)!
+//            if (event.coverPhoto != nil){
+//                print("if photo is not null")
+//                selectedEventCoverPhoto.image = event.coverPhoto
+//            }
+//            else{
+//                print("if photo is not found")
+//                selectedEventCoverPhoto.image = UIImage(named:"coverPhoto-default")
+//            }
+            selectedEventHostUserLabel.text = "Hosted By "+(event["group"]?["name"] as? String)!
+            selectedEventHostUserLabel.text = selectedEventHostUserLabel.text!.uppercaseString
+            selectedEventNameLabel.text = (event["name"] as? String)!
+            
+            if (event["venue"]?["name"] != nil){
+                selectedEventAddressNameLabel.text = (event["venue"]?["name"] as? String)!
+                selectedEventAddressFullLabel.text = (event["venue"]?["address_1"] as? String)!
             }
             else{
-                print("if photo is not found")
-                selectedEventCoverPhoto.image = UIImage(named:"coverPhoto-default")
+                selectedEventAddressNameLabel.text = ""
+                selectedEventAddressFullLabel.text = "Venue information is available for group members only."
             }
-            selectedEventHostUserLabel.text = selectedEventHostUserLabel.text!.uppercaseString
-            selectedEventNameLabel.text = event.eventName
-            selectedEventAddressNameLabel.text = event.eventAddress?.locationName
-            selectedEventAddressFullLabel.text = loadAddress()
-            selectedEventDescription.text = event.eventDescription
             
- //           selectedEventDateLabel.text = loadAndFormatDate(event.eventDateTime)
+            
+            
+            //selectedEventDateLabel.text = loadAndFormatDate(event.eventDateTime)
+            
+            
+            
+            // Label to HTML Formatting from http://stackoverflow.com/questions/11153810/why-does-nstextstorage-setattributedstring-crash-with-nsmutableattributedstrin
+            var descStr = NSMutableAttributedString()
+            do{
+            descStr = try NSMutableAttributedString(data: (event["description"] as? String)!.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+                
+                let fullRange : NSRange = NSMakeRange(0, descStr.length)
+                descStr.addAttributes([NSFontAttributeName : UIFont.systemFontOfSize(16)], range: fullRange)
+                
+            } catch {
+                print ("Error parsing event description")
+            }
+            selectedEventDescription.attributedText = descStr
+            
             
             scrollView.delegate = self
 
@@ -82,49 +107,6 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     
     // MARK: Load in data
     
-    // VERY VERY VERY HACKY AND LAZY WAY OF CONCATENATING
-    func loadAddress() -> String{
-        var catenate:String
-        
-        if (selectedEvent!.eventAddress?.streetNumber != nil)
-        {
-            catenate = (selectedEvent?.eventAddress?.streetNumber?.description)!+(" ")
-        }
-        else
-        {
-            catenate = ""
-        }
-        if (selectedEvent?.eventAddress?.streetName != nil){
-            catenate += (selectedEvent?.eventAddress?.streetName)!+(", ")
-        }
-        else
-        {
-            catenate = ""
-        }
-        if (selectedEvent?.eventAddress?.suburb != nil){
-            catenate += (selectedEvent?.eventAddress?.suburb)!+(" ")
-        }
-        else
-        {
-            catenate = ""
-        }
-        if (selectedEvent?.eventAddress?.stateName != nil){
-            catenate += (selectedEvent?.eventAddress?.stateName)!+(" ")
-        }
-        else
-        {
-            catenate = ""
-        }
-        if (selectedEvent?.eventAddress?.postcode != nil){
-            catenate += (selectedEvent?.eventAddress?.postcode?.description)!
-        }
-        else
-        {
-            catenate = ""
-        }
-        
-        return catenate
-    }
     
     
     
