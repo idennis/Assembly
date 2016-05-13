@@ -174,7 +174,7 @@ class EventMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
 
     
     // MARK: - Rotation
-    // Change Google Map's padding according to rotation 
+    // Change Google Map's padding according to rotation
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.currentDevice().orientation.isLandscape.boolValue {
             let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 40.0, right: 0.0)
