@@ -8,7 +8,7 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--SAVED-->
+        <!--Saved Events-->
         <scene sceneID="wkh-fG-zz8">
             <objects>
                 <viewController id="Frp-ke-adb" customClass="ViewController" customModule="Assembly" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,13 +21,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="SAVED" id="gom-Hn-Ire"/>
+                    <navigationItem key="navigationItem" title="Saved Events" id="gom-Hn-Ire"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2s-iU-nH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2042" y="1301"/>
         </scene>
-        <!--WHAT'S ON-->
+        <!--What's On-->
         <scene sceneID="7EI-U8-9Ac">
             <objects>
                 <tableViewController id="9SR-fH-ift" customClass="EventTableViewController" customModule="Assembly" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,6 +36,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="k8O-Em-cGn" userLabel="Loading View">
+                            <rect key="frame" x="0.0" y="228" width="600" height="100"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DEl-D5-13L">
+                                    <rect key="frame" x="290" y="40" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="DEl-D5-13L" firstAttribute="centerX" secondItem="k8O-Em-cGn" secondAttribute="centerX" id="E6g-Sj-bg9"/>
+                                <constraint firstItem="DEl-D5-13L" firstAttribute="centerY" secondItem="k8O-Em-cGn" secondAttribute="centerY" id="xSo-oP-yUv"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="0.0" reuseIdentifier="EventTableViewCell" rowHeight="200" id="NS0-hp-41v" customClass="EventTableViewCell" customModule="Assembly" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="200"/>
@@ -148,7 +162,7 @@
                             <outlet property="delegate" destination="9SR-fH-ift" id="5aS-mz-mOo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="WHAT'S ON" id="nsP-l9-zTq">
+                    <navigationItem key="navigationItem" title="What's On" id="nsP-l9-zTq">
                         <barButtonItem key="backBarButtonItem" title=" " id="bKh-sa-IpM"/>
                         <barButtonItem key="leftBarButtonItem" image="Search" id="tEr-l4-inT">
                             <connections>
@@ -163,6 +177,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="DEl-D5-13L" id="pBP-qC-YF8"/>
+                        <outlet property="loadingView" destination="k8O-Em-cGn" id="KAm-fW-mha"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8v-w4-D14" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -719,7 +737,7 @@
             </objects>
             <point key="canvasLocation" x="1304" y="2045"/>
         </scene>
-        <!--PROFILE-->
+        <!--Profile-->
         <scene sceneID="Xp1-Xg-wtd">
             <objects>
                 <viewController id="hpv-xz-z4f" customClass="ProfileViewController" customModule="Assembly" customModuleProvider="target" sceneMemberID="viewController">
@@ -780,7 +798,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="PROFILE" id="oDQ-7V-80S"/>
+                    <navigationItem key="navigationItem" title="Profile" id="oDQ-7V-80S"/>
                     <connections>
                         <outlet property="profilePhoto" destination="Ogg-1X-KfE" id="ahr-gp-8Ac"/>
                     </connections>

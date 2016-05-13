@@ -11,7 +11,6 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import AlamofireNetworkActivityIndicator
 
 class EventTableViewController: UITableViewController {
 
@@ -29,6 +28,8 @@ class EventTableViewController: UITableViewController {
     var imageURL:String?
 
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -37,7 +38,7 @@ class EventTableViewController: UITableViewController {
         
         // Style overrides
             self.navigationController?.navigationBar.translucent = false
-            changeNavTitle()
+        
             // Set table view to full screen width
             tableView.layoutMargins = UIEdgeInsetsZero
             tableView.separatorInset = UIEdgeInsetsZero
@@ -49,33 +50,31 @@ class EventTableViewController: UITableViewController {
         
     }
 
-    // MARK: - Style
-    func changeNavTitle(){
-        let titleLabel = UILabel()
-        let colour = UIColor.whiteColor()
-        let attributes: [String : AnyObject] = [NSFontAttributeName: UIFont.systemFontOfSize(15, weight: UIFontWeightSemibold)
-, NSForegroundColorAttributeName: colour, NSKernAttributeName : 1.2]
-        titleLabel.attributedText = NSAttributedString(string: "WHAT'S ON", attributes: attributes)
-        titleLabel.sizeToFit()
-        self.navigationItem.titleView = titleLabel
-    }
-    
-
 
     
     
     // MARK: - Table view data source
     func getNewEvents(){
         // Data load-ins from Meetup.com
-        Alamofire.request(.GET, "https://api.meetup.com/2/open_events?key="+APIKEY+"&sign=true&photo-host=secure&host=public&country=AU&city=melbourne&state=VC&time=,5w&desc=true&group_photo&page=20").responseJSON { (responseData) -> Void in
+        Alamofire.request(.GET, "https://api.meetup.com/2/open_events?key="+APIKEY+"&sign=true&photo-host=secure&host=public&country=AU&city=melbourne&state=VC&time=,5w&desc=true&group_photo&page=20").progress({ (bytesRead, totalBytesRead, totalBytesExpectedToRead) in
+            
+            print(totalBytesRead)
+            self.activityIndicator.startAnimating()
+            
+        }).responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 print("Success")
                 
-                let swiftyJsonVar = JSON(responseData.result.value!)
+                // Stop and hides activity indicator if data is found and loaded
+                self.activityIndicator.stopAnimating()
+                self.loadingView.hidden = true
+                self.loadingView.removeFromSuperview()
                 
+                
+                let swiftyJsonVar = JSON(responseData.result.value!)
+                print(swiftyJsonVar)
                 
                 if let data = swiftyJsonVar["results"].arrayObject{
-                    
                     self.eventsDictionaryArray = data as! [[String:AnyObject]]
                     print(self.eventsDictionaryArray)
                 }
@@ -94,7 +93,7 @@ class EventTableViewController: UITableViewController {
     }
     
     
-    // MARK: Group Name
+    // MARK: Group Photo
     func getGroupImageURL(groupID:Int64){
         let stringID = String(groupID)
         //var imageURL:String? = ""
@@ -103,11 +102,14 @@ class EventTableViewController: UITableViewController {
             
             if let JsonVar = response.result.value {
                 if let groupData = JsonVar["results"]{
-                    self.groupPhotoDictionaryArray = groupData as! [[String:AnyObject]]
-//                    print ("in getGroupImageURL")
-                    self.imageURL = self.groupPhotoDictionaryArray[0]["group_photo"]?["photo_link"] as? String
-//                    print("IN IF STATEMENT")
-//                    print(self.imageURL)
+                    if (groupData != nil){
+                        self.groupPhotoDictionaryArray = groupData as! [[String:AnyObject]]
+//                          print ("in getGroupImageURL")
+                        self.imageURL = self.groupPhotoDictionaryArray[0]["group_photo"]?["photo_link"] as? String
+//                          print("IN IF STATEMENT")
+//                          print(self.imageURL)
+                    }
+                    
                 }
             }
 
@@ -168,26 +170,6 @@ class EventTableViewController: UITableViewController {
         }
         
         
-        
-        
-        //let NSDateValue = convertDateToNSDate(dateFromJSON!)
-        //let formattedDate = convertNSDateToString(NSDateValue!)
-        
-        
-        
-        
-//        let baseURL = ""
-//        let picURL = dict["backdrop_path"] as? String
-//        let fullPath = baseURL + picURL!
-//        let url = NSURL(string: fullPath)
-//        let data = NSData(contentsOfURL: url!)
-//        
-//        if data != nil{
-//            cell.eventCoverPhoto?.image = UIImage(data: data!)
-//        }
-
-        
-        
     }
     
     
@@ -206,12 +188,19 @@ class EventTableViewController: UITableViewController {
         }
         
         
+//        if indexPath.row == eventsDictionaryArray.count - 1 {
+//            
+//            if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? EventTableViewCell{
+//                
+//                loadContentForCell(cell, indexPath: indexPath)
+//                cell.layoutMargins = UIEdgeInsetsZero
+//                return cell
+//            }
+//        }
         
         
-        // Fetch event for data source layout
-//        let event = events[indexPath.row]
-//        
-//        // Assign event data from array into cell UI 
+        
+//        // Assign event data from array into cell UI
 //        cell.eventNameLabel.text = event.eventName
 //        cell.eventLocationLabel.text = event.eventAddress?.locationName
 //        
