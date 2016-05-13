@@ -23,6 +23,7 @@
 		9592D8D61CB01793003A8E3F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592D8D51CB01793003A8E3F /* LoginViewController.swift */; };
 		9592D8D81CB08CE3003A8E3F /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592D8D71CB08CE3003A8E3F /* EventDetailsViewController.swift */; };
 		95A34AA61CB0B685003909E3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A34AA51CB0B685003909E3 /* ProfileViewController.swift */; };
+		95F33FAA1CE5FAF900B57A0F /* EventMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F33FA91CE5FAF900B57A0F /* EventMapViewController.swift */; };
 		C5F3425AE3E465D7B5130BFD /* Pods_Assembly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D04D47D2F2263E9959A3E9 /* Pods_Assembly.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		9592D8D51CB01793003A8E3F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9592D8D71CB08CE3003A8E3F /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		95A34AA51CB0B685003909E3 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		95F33FA91CE5FAF900B57A0F /* EventMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapViewController.swift; sourceTree = "<group>"; };
 		CD4DEABA274ED3E491F00ECB /* Pods-Assembly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assembly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Assembly/Pods-Assembly.release.xcconfig"; sourceTree = "<group>"; };
 		E6D04D47D2F2263E9959A3E9 /* Pods_Assembly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Assembly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,9 +149,8 @@
 				9592D8D51CB01793003A8E3F /* LoginViewController.swift */,
 				95432C301C97F19A00BC21C5 /* ViewController.swift */,
 				9585E1F01CAF8FD800439290 /* PostEventViewController.swift */,
-				952342A31CAD3F8300B52599 /* EventTableViewController.swift */,
-				952342A11CAD3E4A00B52599 /* EventTableViewCell.swift */,
-				9592D8D71CB08CE3003A8E3F /* EventDetailsViewController.swift */,
+				95F33FAB1CE5FB0B00B57A0F /* Event Table Controllers */,
+				95F33FAC1CE5FB1E00B57A0F /* Event Detail Controllers */,
 				95A34AA51CB0B685003909E3 /* ProfileViewController.swift */,
 			);
 			name = Controller;
@@ -180,6 +181,24 @@
 				95566B321C991C0A003A7A45 /* EventAddress.swift */,
 			);
 			name = Event;
+			sourceTree = "<group>";
+		};
+		95F33FAB1CE5FB0B00B57A0F /* Event Table Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				952342A31CAD3F8300B52599 /* EventTableViewController.swift */,
+				952342A11CAD3E4A00B52599 /* EventTableViewCell.swift */,
+			);
+			name = "Event Table Controllers";
+			sourceTree = "<group>";
+		};
+		95F33FAC1CE5FB1E00B57A0F /* Event Detail Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9592D8D71CB08CE3003A8E3F /* EventDetailsViewController.swift */,
+				95F33FA91CE5FAF900B57A0F /* EventMapViewController.swift */,
+			);
+			name = "Event Detail Controllers";
 			sourceTree = "<group>";
 		};
 		B0F4A7E422060141415B8ED4 /* Frameworks */ = {
@@ -346,6 +365,7 @@
 				9585E1F11CAF8FD800439290 /* PostEventViewController.swift in Sources */,
 				95432C311C97F19A00BC21C5 /* ViewController.swift in Sources */,
 				95566B331C991C0A003A7A45 /* EventAddress.swift in Sources */,
+				95F33FAA1CE5FAF900B57A0F /* EventMapViewController.swift in Sources */,
 				952342A41CAD3F8300B52599 /* EventTableViewController.swift in Sources */,
 				95509BE21C990EFD000B569C /* Event.swift in Sources */,
 				95566B391C992CD3003A7A45 /* Model.swift in Sources */,

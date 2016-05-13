@@ -10,33 +10,35 @@ import UIKit
 
 class EventDetailsViewController: UIViewController, UINavigationControllerDelegate, UIScrollViewDelegate {
 
-    
+    // MARK:- Properties
     var selectedEvent:[String:AnyObject]?
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var selectedEventNameLabel: UILabel!
     @IBOutlet weak var selectedEventHostUserLabel: UILabel!
-    
-        
     @IBOutlet weak var selectedEventDateLabel: UILabel!
     @IBOutlet weak var selectedEventTimeLabel: UILabel!
     
     @IBOutlet weak var selectedEventAddressNameLabel: UILabel!
     @IBOutlet weak var selectedEventAddressFullLabel: UILabel!
+    @IBOutlet weak var viewOnMapLabel: UILabel!
+    @IBOutlet weak var viewMoreChevron: UIImageView!
 
+    
     @IBOutlet weak var selectedEventCoverPhoto: UIImageView!
 
     @IBOutlet weak var selectedEventNavBar: UINavigationItem!
     
     @IBOutlet weak var selectedEventDateTimeView: UIView!
     @IBOutlet weak var selectedEventLocationView: UIView!
-    
     @IBOutlet weak var selectedEventDescription: UILabel!
     
     @IBOutlet weak var joinEventButton: UIButton!
     
+    // Fallback spacing attribute
+    var spacingToBottom:NSLayoutConstraint = NSLayoutConstraint()
     
-    
+    //MARK:- Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +63,10 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             else{
                 selectedEventAddressNameLabel.text = ""
                 selectedEventAddressFullLabel.text = "Venue information is available for group members only."
+                viewOnMapLabel.removeFromSuperview()
+                viewMoreChevron.removeFromSuperview()
+                loadFallbackConstraints()
+                selectedEventLocationView.addConstraint(spacingToBottom)
             }
             
             
@@ -74,9 +80,6 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             else{
                 loadAndFormatDate(eventTime, duration:0)
             }
-            //selectedEventDateLabel.text = loadAndFormatDate(time)
-            
-            
             
             // Label to HTML Formatting from http://stackoverflow.com/questions/11153810/why-does-nstextstorage-setattributedstring-crash-with-nsmutableattributedstrin
             var descStr = NSMutableAttributedString()
@@ -95,19 +98,25 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
             scrollView.delegate = self
 
         }
+        drawBorders()
+    }
+    
+    
+    
+    // MARK: - Styling
+    func drawBorders(){
         
         // Draw borders on views
         selectedEventDateTimeView.layer.borderWidth = 1
         selectedEventDateTimeView.layer.borderColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
         selectedEventLocationView.layer.borderWidth = 1
         selectedEventLocationView.layer.borderColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0).CGColor
-        
-        
     }
     
-    
-    
-    
+    // Once View On Map link is removed due to privated addresses, programmatically set new constraints to ensure subview is correctly rendered
+    func loadFallbackConstraints(){
+        self.spacingToBottom = NSLayoutConstraint(item: selectedEventLocationView, attribute: .Bottom , relatedBy: .Equal, toItem: selectedEventAddressFullLabel, attribute: .Bottom, multiplier: 1.0, constant: 15)
+    }
     
     
     // MARK: Date Formatting
@@ -118,7 +127,6 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         
         // Divided by milliseconds as given from Meetup's Database
         let date = NSDate(timeIntervalSince1970: ti/1000.0)
-        
         
         // Conversion from ms to hours (Event Duration)
         let intDurationValue:Int = duration
@@ -133,19 +141,6 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         let endTimeStringFormatter = NSDateFormatter()
         endTimeStringFormatter.dateFormat = "h:mmaa"
         let endTimeString = endTimeStringFormatter.stringFromDate(endDate)
-
-//            let calendar = NSCalendar.currentCalendar()
-        // Split date into components
-//            let components = calendar.components([.Day,.Month,.Year], fromDate: date)
-//            
-//            let year = components.year
-//            let month = components.month
-//            let day = components.day
-//            
-//            let allMonths = formatter.shortMonthSymbols
-//            let monthEnglish = allMonths[month-1]
-//            print (year,monthEnglish,day)
-
         
         // Human readable date, nicely formatted :)
         let dateStringFormatter = NSDateFormatter()
@@ -157,8 +152,7 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         let timeString = timeStringFormatter.stringFromDate(date)
         
         selectedEventDateLabel.text = dateString
-        
-        
+
         // If no duration supplied, display "From <time>" instead
         if (duration == 0){
             selectedEventTimeLabel.text = "From "+timeString
@@ -203,14 +197,31 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     
     
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    // Validate segue (disable map segue if address is not public)
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        
+        if identifier == "ShowMap"{
+            if (selectedEvent!["venue"] == nil) || (selectedEventAddressNameLabel.text == "TBA") {
+                return false
+            }
+            else{
+                return true
+            }
+        }
+        // Fallback
+        return true
     }
-    */
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowMap" {
+            let eventMapViewController = segue.destinationViewController as! EventMapViewController
+                eventMapViewController.selectedEventDetails = selectedEvent
+        }
+    }
+    
 
 }
