@@ -56,8 +56,9 @@ class EventMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         setUpMarker()
         
         mapView.delegate = self
-
-
+        
+        let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 30.0, right: 0.0)
+        mapView.padding = mapInsets
 
         
         drawButtonBorder()
@@ -89,10 +90,9 @@ class EventMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         
         if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
             UIApplication.sharedApplication().openURL(NSURL(string:
-                "comgooglemaps://?center="+latString+","+longString+"&zoom=14&views=traffic")!)
+                "comgooglemaps://?saddr=&daddr="+latString+","+longString+"&directionsmode=transit&center="+latString+","+longString+"&zoom=14&views=traffic")!)
         } else {
             print("Can't use comgooglemaps://");
-            
             // Show popup alert if user has no Google Maps
             let alert = UIAlertController(title: "Oops!", message: "Looks like you don't have Google Maps in your device. \nInstalling Google Maps should fix this.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
@@ -181,7 +181,7 @@ class EventMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             mapView.padding = mapInsets
             
         } else {
-            let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+            let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 30.0, right: 0.0)
             mapView.padding = mapInsets
         }
     }

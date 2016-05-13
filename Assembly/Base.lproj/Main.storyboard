@@ -500,7 +500,6 @@
         <!--Event Map View Controller-->
         <scene sceneID="S9U-dc-xB3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c6c-3j-RUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="PFD-9Q-3DL" userLabel="Event Map View Controller" customClass="EventMapViewController" customModule="Assembly" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sGU-zE-nTk"/>
@@ -518,8 +517,8 @@
                                 <rect key="frame" x="0.0" y="360" width="600" height="240"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="19.5" text="Location Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOz-ra-Tp8">
-                                        <rect key="frame" x="20" y="51" width="560" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <rect key="frame" x="20" y="46" width="560" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -530,7 +529,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="OPEN IN GOOGLE MAPS   &gt;">
+                                        <state key="normal" title="SHOW DIRECTIONS IN GOOGLE MAPS   &gt;">
                                             <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -546,7 +545,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="GOz-ra-Tp8" firstAttribute="top" secondItem="vVT-rj-LJX" secondAttribute="bottom" constant="10" id="70U-Eb-8bM"/>
+                                    <constraint firstItem="GOz-ra-Tp8" firstAttribute="top" secondItem="vVT-rj-LJX" secondAttribute="bottom" constant="5" id="70U-Eb-8bM"/>
                                     <constraint firstItem="Ntd-qz-Mp2" firstAttribute="centerX" secondItem="iPX-or-J3N" secondAttribute="centerX" id="Q4U-ud-SVK"/>
                                     <constraint firstItem="GOz-ra-Tp8" firstAttribute="leading" secondItem="vVT-rj-LJX" secondAttribute="leading" id="RBL-iz-7mb"/>
                                     <constraint firstAttribute="bottom" secondItem="Ntd-qz-Mp2" secondAttribute="bottom" id="hjp-Ob-H4T"/>
@@ -583,6 +582,7 @@
                         <outlet property="superView" destination="7dO-79-RAP" id="GxU-Gx-mmc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c6c-3j-RUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="590" y="2767"/>
         </scene>
