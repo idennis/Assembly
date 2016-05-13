@@ -23,6 +23,7 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var selectedEventAddressFullLabel: UILabel!
     @IBOutlet weak var viewOnMapLabel: UILabel!
     @IBOutlet weak var viewMoreChevron: UIImageView!
+    @IBOutlet var tapEventAddressView: UITapGestureRecognizer!
 
     
     @IBOutlet weak var selectedEventCoverPhoto: UIImageView!
@@ -223,5 +224,9 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
-
+    
+    @IBAction func tapEventAddress(sender: UIGestureRecognizer){
+        selectedEventLocationView.backgroundColor = UIColor.init(red:0.77,green:0.77,blue:0.77,alpha:1.00)
+    }
+    
 }
