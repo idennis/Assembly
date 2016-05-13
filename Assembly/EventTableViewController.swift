@@ -141,7 +141,7 @@ class EventTableViewController: UITableViewController {
         cell.eventNameLabel?.text = dict["name"] as? String
         
         if (dict["venue"]?["name"] as? String == nil){
-            cell.eventLocationLabel?.text = "Location visible to group members only."
+            cell.eventLocationLabel?.text = "Venue is not publicly available."
         }
         else{
             cell.eventLocationLabel?.text = dict["venue"]?["name"] as? String

@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ShareEventViewController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>95432C3E1C97F19A00BC21C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>95A4560A1CE66D6B001E0E18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
