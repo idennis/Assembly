@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+    <entity name="Event" representedClassName=".Event" syncable="YES">
+        <attribute name="eventDateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="eventDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="eventHost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventLocationAdd1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventLocationLat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="eventLocationLong" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="eventLocationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventName" attributeType="String" syncable="YES"/>
+        <relationship name="eventIsUnderUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userHasEvent" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="fullName" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePhoto" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="savedEvents" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="userLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="userHasEvent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="eventIsUnderUser" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-27" positionY="47" width="128" height="148"/>
+        <element name="Event" positionX="162" positionY="36" width="128" height="193"/>
+    </elements>
+</model>

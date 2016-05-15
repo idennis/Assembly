@@ -278,7 +278,7 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
         return true
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+ /*   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // ===  check that the object referenced by the saveButton outlet is the same object instance as sender. If it is, the if statement is executed.
         print("in prepareForSegue")
         
@@ -315,6 +315,6 @@ class PostEventViewController: UIViewController, UITextFieldDelegate, UIImagePic
 
     
     
-    
+    */
 
 }

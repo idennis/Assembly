@@ -27,7 +27,7 @@ class EventMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     @IBOutlet var superView: UIView!
     
     // For consistent zoom level
-    let zoomLevel:Float = 17
+    let zoomLevel:Float = 16
     // User's Location
     var locationManager = CLLocationManager()
     var didFindMyLocation = false
@@ -92,6 +92,7 @@ class EventMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
             UIApplication.sharedApplication().openURL(NSURL(string:
                 "comgooglemaps://?saddr=&daddr="+latString+","+longString+"&directionsmode=transit&center="+latString+","+longString+"&zoom=14&views=traffic")!)
         } else {
+            
             print("Can't use comgooglemaps://");
             // Show popup alert if user has no Google Maps
             let alert = UIAlertController(title: "Oops!", message: "Looks like you don't have Google Maps in your device. \nInstalling Google Maps should fix this.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -133,6 +134,7 @@ class EventMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
     // MARK: - Map Camera
     func initMapCamera(){
         let camera = GMSCameraPosition.cameraWithLatitude(venueLat, longitude: venueLong, zoom: zoomLevel)
+        mapView.animateToZoom(zoomLevel)
         self.mapView.camera = camera
     }
     

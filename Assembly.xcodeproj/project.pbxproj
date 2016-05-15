@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		952342A21CAD3E4A00B52599 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952342A11CAD3E4A00B52599 /* EventTableViewCell.swift */; };
 		952342A41CAD3F8300B52599 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952342A31CAD3F8300B52599 /* EventTableViewController.swift */; };
+		95357DFE1CE841C800F5F721 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95357DFD1CE841C800F5F721 /* CoreData.framework */; };
+		95357E011CE8421000F5F721 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95357DFF1CE8421000F5F721 /* CoreDataModel.xcdatamodeld */; };
 		95432C2F1C97F19A00BC21C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95432C2E1C97F19A00BC21C5 /* AppDelegate.swift */; };
 		95432C311C97F19A00BC21C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95432C301C97F19A00BC21C5 /* ViewController.swift */; };
 		95432C341C97F19A00BC21C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95432C321C97F19A00BC21C5 /* Main.storyboard */; };
@@ -16,7 +18,6 @@
 		95432C391C97F19A00BC21C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95432C371C97F19A00BC21C5 /* LaunchScreen.storyboard */; };
 		95432C441C97F19A00BC21C5 /* AssemblyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95432C431C97F19A00BC21C5 /* AssemblyUITests.swift */; };
 		95509BE21C990EFD000B569C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95509BE11C990EFD000B569C /* Event.swift */; };
-		95566B331C991C0A003A7A45 /* EventAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95566B321C991C0A003A7A45 /* EventAddress.swift */; };
 		95566B361C991F07003A7A45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95566B351C991F07003A7A45 /* User.swift */; };
 		95566B391C992CD3003A7A45 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95566B381C992CD3003A7A45 /* Model.swift */; };
 		9585E1F11CAF8FD800439290 /* PostEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9585E1F01CAF8FD800439290 /* PostEventViewController.swift */; };
@@ -54,6 +55,8 @@
 		28D66E19410A7232DC6D6A47 /* Pods-Assembly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assembly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assembly/Pods-Assembly.debug.xcconfig"; sourceTree = "<group>"; };
 		952342A11CAD3E4A00B52599 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		952342A31CAD3F8300B52599 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
+		95357DFD1CE841C800F5F721 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		95357E001CE8421000F5F721 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		95432C2B1C97F19A00BC21C5 /* Assembly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assembly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95432C2E1C97F19A00BC21C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95432C301C97F19A00BC21C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		95432C431C97F19A00BC21C5 /* AssemblyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyUITests.swift; sourceTree = "<group>"; };
 		95432C451C97F19A00BC21C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95509BE11C990EFD000B569C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		95566B321C991C0A003A7A45 /* EventAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAddress.swift; sourceTree = "<group>"; };
 		95566B351C991F07003A7A45 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		95566B381C992CD3003A7A45 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		9585E1F01CAF8FD800439290 /* PostEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostEventViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95357DFE1CE841C800F5F721 /* CoreData.framework in Frameworks */,
 				C5F3425AE3E465D7B5130BFD /* Pods_Assembly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +132,7 @@
 		95432C2D1C97F19A00BC21C5 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				95357DFF1CE8421000F5F721 /* CoreDataModel.xcdatamodeld */,
 				95A4561B1CE66E42001E0E18 /* Assembly.entitlements */,
 				95432C2E1C97F19A00BC21C5 /* AppDelegate.swift */,
 				95509BE01C990EB4000B569C /* Model */,
@@ -193,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				95509BE11C990EFD000B569C /* Event.swift */,
-				95566B321C991C0A003A7A45 /* EventAddress.swift */,
 			);
 			name = Event;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 		B0F4A7E422060141415B8ED4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95357DFD1CE841C800F5F721 /* CoreData.framework */,
 				E6D04D47D2F2263E9959A3E9 /* Pods_Assembly.framework */,
 			);
 			name = Frameworks;
@@ -385,7 +389,6 @@
 			files = (
 				9585E1F11CAF8FD800439290 /* PostEventViewController.swift in Sources */,
 				95432C311C97F19A00BC21C5 /* ViewController.swift in Sources */,
-				95566B331C991C0A003A7A45 /* EventAddress.swift in Sources */,
 				95F33FAA1CE5FAF900B57A0F /* EventMapViewController.swift in Sources */,
 				952342A41CAD3F8300B52599 /* EventTableViewController.swift in Sources */,
 				95509BE21C990EFD000B569C /* Event.swift in Sources */,
@@ -395,6 +398,7 @@
 				95566B361C991F07003A7A45 /* User.swift in Sources */,
 				9592D8D61CB01793003A8E3F /* LoginViewController.swift in Sources */,
 				9592D8D81CB08CE3003A8E3F /* EventDetailsViewController.swift in Sources */,
+				95357E011CE8421000F5F721 /* CoreDataModel.xcdatamodeld in Sources */,
 				95432C2F1C97F19A00BC21C5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,6 +611,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		95357DFF1CE8421000F5F721 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				95357E001CE8421000F5F721 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 95357E001CE8421000F5F721 /* CoreDataModel.xcdatamodel */;
+			name = CoreDataModel.xcdatamodeld;
+			path = ../CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 95432C231C97F19A00BC21C5 /* Project object */;
 }

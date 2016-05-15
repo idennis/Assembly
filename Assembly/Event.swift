@@ -15,12 +15,12 @@ struct event
     var eventName:String?
     var eventDateTime:String?
     var eventDescription:String?
-    var eventAddress:address?
+    
 
     var eventCategories:[String]?
     var coverPhoto:UIImage?
 
-//    var hostUser:user
+
 //    var joinedUsers:[user]
     
     
