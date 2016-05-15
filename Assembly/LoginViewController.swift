@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     // MARK: Model
     //var model = Model.sharedInstance
+    let moc = DataController().managedObjectContext
+    
     
     // MARK: Properties
     @IBOutlet weak var assemblyLogo: UIImageView!
@@ -28,6 +31,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
 
     
+    
+    
     // MARK: Design
     func setButtonBorderAsWhite() -> UIColor{
         return UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:1.0)
@@ -39,15 +44,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
+    // MARK: - Load
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         loginButton.enabled = false
-        
-        
-        // Programmatically changes design
+
         setLabelsUppercase()
         self.signUpButton.layer.borderWidth = 1
         self.signUpButton.layer.borderColor = setButtonBorderAsWhite().CGColor
@@ -59,6 +61,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Check of input fields are empty
         checkLoginEmpty()
         
+        fetchUser()
+        
     }
 
     
@@ -69,7 +73,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if !usernameFieldValue.isEmpty && !passwordFieldValue.isEmpty{
             loginButton.enabled = true
-            print("login button enabled")
             return false
         }
         return true
@@ -115,4 +118,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func passwordTextField(sender: UITextField) {
     }
     
+    
+    
+    // MARK: - Fetch User
+    func fetchUser(){
+        let userFetch = NSFetchRequest(entityName: "User")
+        
+        do{
+            let fetchedUser = try moc.executeFetchRequest(userFetch) as! [User]
+            print(fetchedUser.count)
+            for user in fetchedUser{
+                print(user.fullName, user.password, user.userLocation)
+            }
+        } catch {
+            fatalError("could not fetch user \(error)")
+        }
+        
+        
+    }
 }

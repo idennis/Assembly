@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import GoogleMaps
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let MeetupAPIKey:String = "4826197d35111d936346b52d2476b"
     let GoogleMapsAPIKey:String = "AIzaSyBMIn876KFU5NYH_aDarqa28ePoRZ60Mdw"
+
+    
+    var dataController:DataController!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         GMSServices.provideAPIKey(GoogleMapsAPIKey)
+
+        
         return true
     }
 
