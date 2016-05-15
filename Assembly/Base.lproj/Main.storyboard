@@ -1031,7 +1031,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="loginButton:" destination="qkb-xi-Otq" eventType="touchUpInside" id="Tur-pd-LoJ"/>
                                             <action selector="signupTapped:" destination="hye-lj-hkt" eventType="touchUpInside" id="Oxn-BF-jn1"/>
                                         </connections>
                                     </button>
@@ -1224,7 +1223,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginButton:" destination="qkb-xi-Otq" eventType="touchUpInside" id="nBC-RF-9bk"/>
-                                    <segue destination="oFE-Yl-tqJ" kind="show" id="kWn-qo-WUs"/>
+                                    <segue destination="oFE-Yl-tqJ" kind="show" identifier="LoginSegue" id="kWn-qo-WUs"/>
                                 </connections>
                             </button>
                         </subviews>

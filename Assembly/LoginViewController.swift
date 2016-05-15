@@ -38,9 +38,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:1.0)
     }
     
-    func setLabelsUppercase(){
+    func setLabelsUppercaseAndDrawBorder(){
         usernameLabel.text = usernameLabel.text!.uppercaseString
         passwordLabel.text = passwordLabel.text!.uppercaseString
+        self.signUpButton.layer.borderWidth = 1
+        self.signUpButton.layer.borderColor = setButtonBorderAsWhite().CGColor
+
     }
     
     
@@ -50,9 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         loginButton.enabled = false
 
-        setLabelsUppercase()
-        self.signUpButton.layer.borderWidth = 1
-        self.signUpButton.layer.borderColor = setButtonBorderAsWhite().CGColor
+        setLabelsUppercaseAndDrawBorder()
         
         // Handle the text field’s user input through delegate callbacks.
         usernameTextField.delegate = self
@@ -103,21 +104,66 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         checkLoginEmpty()
     }
     
+    
     @IBAction func userTappedBackground(sender: AnyObject) {
-        //self.view.endEditing(true)
         passwordTextField.resignFirstResponder()
         usernameTextField.resignFirstResponder()
     }
     
     
-    // MARK: Actions
+    // MARK: - Actions
+    
+    // User press Login Button
     @IBAction func loginButton(sender: UIButton) {
+        if checkUserAndPassword(usernameTextField.text!, password: passwordTextField.text!) == true{
+            print("USER FOUND")
+            
+        }
+        else{
+            let alert = UIAlertController(title: "Oops", message: "The username and password you have entered does not match our records. Double-check and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+
+            print("NOT FOUND")
+            
+        }
+        
     }
     @IBAction func signUpButton(sender: UIButton) {
+        
     }
     @IBAction func passwordTextField(sender: UITextField) {
     }
     
+    
+    // MARK: - Find User in DB
+    func checkUserAndPassword(username:String, password:String)->Bool{
+        var predicate = NSPredicate(format:"username = %@", username)
+        var fetchRequest = NSFetchRequest(entityName: "User")
+        fetchRequest.predicate = predicate
+        
+        var error:NSError? = nil
+        
+        do{
+            let fetchResult = try moc.executeFetchRequest(fetchRequest)
+            
+            if fetchResult.count > 0 {
+                var fetchedUser:User = fetchResult.first as! User
+                
+                if fetchedUser.username == username && fetchedUser.password == password {
+                    return true
+                }
+                
+                else{
+                    return false
+                }
+            }
+        } catch {
+            fatalError("could not fetch users \(error)")
+        }
+        
+        return false
+    }
     
     
     // MARK: - Fetch User
@@ -135,5 +181,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         
+    }
+    
+    
+    
+    
+    // MARK: - Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "LoginSegue" {
+            //let eventTableViewController = segue.destinationViewController as! EventTableViewController
+            //eventTableViewController = loggedIn
+        }
+        
+    }
+    
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "LoginSegue" {
+            if checkUserAndPassword(usernameTextField.text!, password: passwordTextField.text!) == true{
+                return true
+            }
+        }
+        return false
     }
 }

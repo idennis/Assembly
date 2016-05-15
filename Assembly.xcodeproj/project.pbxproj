@@ -124,6 +124,14 @@
 			name = "Login & Sign Up Controllers";
 			sourceTree = "<group>";
 		};
+		95357E381CE8CF4400F5F721 /* Profile View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				95A34AA51CB0B685003909E3 /* ProfileViewController.swift */,
+			);
+			name = "Profile View Controller";
+			sourceTree = "<group>";
+		};
 		95432C221C97F19A00BC21C5 = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +193,7 @@
 				9585E1F01CAF8FD800439290 /* PostEventViewController.swift */,
 				95F33FAB1CE5FB0B00B57A0F /* Event Table Controllers */,
 				95F33FAC1CE5FB1E00B57A0F /* Event Detail Controllers */,
-				95A34AA51CB0B685003909E3 /* ProfileViewController.swift */,
+				95357E381CE8CF4400F5F721 /* Profile View Controller */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

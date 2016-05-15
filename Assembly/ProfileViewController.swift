@@ -12,11 +12,12 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var profilePhoto: UIImageView!
     
+    let moc = DataController().managedObjectContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //changeNavTitle()
+        
         styleProfilePhoto()
 
     }
@@ -30,15 +31,7 @@ class ProfileViewController: UIViewController {
 
     }
     
-    func changeNavTitle(){
-        let titleLabel = UILabel()
-        let colour = UIColor.whiteColor()
-        let attributes: [String : AnyObject] = [NSFontAttributeName: UIFont.systemFontOfSize(15, weight: UIFontWeightSemibold)
-            , NSForegroundColorAttributeName: colour, NSKernAttributeName : 1.2]
-        titleLabel.attributedText = NSAttributedString(string: "PROFILE", attributes: attributes)
-        titleLabel.sizeToFit()
-        self.navigationItem.titleView = titleLabel
-    }
+ 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
