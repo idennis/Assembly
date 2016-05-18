@@ -10,25 +10,32 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var profilePhoto: UIImageView!
     
+    // MARK: - Properties
+    @IBOutlet weak var profilePhoto: UIImageView!
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
+    
+    // Model
     let moc = DataController().managedObjectContext
+    
+    lazy var currUser:User = User()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        print(moc)
         styleProfilePhoto()
 
     }
     
+    // MARK: Style
     func styleProfilePhoto(){
         profilePhoto.layer.cornerRadius =
             profilePhoto.frame.size.width / 2
         profilePhoto.clipsToBounds = true
         profilePhoto.layer.borderColor = UIColor.whiteColor().CGColor
         profilePhoto.layer.borderWidth = 2
-
     }
     
  
@@ -38,6 +45,15 @@ class ProfileViewController: UIViewController {
     }
     
 
+    
+    // MARK: - Actions
+    @IBAction func signOutButtonTapped(sender: UIBarButtonItem) {
+        
+        
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

@@ -34,15 +34,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: Design
-    func setButtonBorderAsWhite() -> UIColor{
-        return UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:1.0)
-    }
-    
     func setLabelsUppercaseAndDrawBorder(){
         usernameLabel.text = usernameLabel.text!.uppercaseString
         passwordLabel.text = passwordLabel.text!.uppercaseString
         self.signUpButton.layer.borderWidth = 1
-        self.signUpButton.layer.borderColor = setButtonBorderAsWhite().CGColor
+        self.signUpButton.layer.borderColor = UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:1.0).CGColor
 
     }
     
@@ -62,6 +58,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Check of input fields are empty
         checkLoginEmpty()
         
+        //seedUsers()
         fetchUser()
         
     }
@@ -138,19 +135,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Find User in DB
     func checkUserAndPassword(username:String, password:String)->Bool{
-        var predicate = NSPredicate(format:"username = %@", username)
-        var fetchRequest = NSFetchRequest(entityName: "User")
+        let predicate = NSPredicate(format:"username = %@", username)
+        let fetchRequest = NSFetchRequest(entityName: "User")
         fetchRequest.predicate = predicate
         
-        var error:NSError? = nil
+        
         
         do{
             let fetchResult = try moc.executeFetchRequest(fetchRequest)
             
             if fetchResult.count > 0 {
-                var fetchedUser:User = fetchResult.first as! User
+                let fetchedUser:User = fetchResult.first as! User
                 
                 if fetchedUser.username == username && fetchedUser.password == password {
+                    fetchedUser.loggedIn = true
+                    let currUser = fetchedUser
                     return true
                 }
                 
@@ -174,7 +173,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let fetchedUser = try moc.executeFetchRequest(userFetch) as! [User]
             print(fetchedUser.count)
             for user in fetchedUser{
-                print(user.fullName, user.password, user.userLocation)
+                user.loggedIn = false
+                print(user.fullName, user.password, user.username)
             }
         } catch {
             fatalError("could not fetch user \(error)")
@@ -184,6 +184,60 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    // MARK: - Seed Users (use this when model is changed)
+    func seedUsers(){
+        let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
+        
+        newUser.setValue("Sean Wilkes", forKey: "fullName")
+        newUser.setValue("testpassword", forKey: "password")
+        newUser.setValue("sean.w", forKey: "username")
+        newUser.setValue(nil, forKey: "profilePhoto")
+        newUser.setValue(nil, forKey: "savedEvents")
+        newUser.setValue("melb au", forKey: "userLocation")
+        newUser.setValue(false, forKey: "loggedIn")
+        
+        
+        let newUser2 = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
+        
+        newUser2.setValue("Anita Schmidt", forKey: "fullName")
+        newUser2.setValue("123456", forKey: "password")
+        newUser2.setValue("anita_schmidt", forKey: "username")
+        newUser2.setValue(nil, forKey: "profilePhoto")
+        newUser2.setValue(nil, forKey: "savedEvents")
+        newUser2.setValue("down under", forKey: "userLocation")
+        newUser2.setValue(false, forKey: "loggedIn")
+        
+        
+        let newUser3 = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
+        
+        newUser3.setValue("Owen Bright", forKey: "fullName")
+        newUser3.setValue("password", forKey: "password")
+        newUser3.setValue("owen.bright", forKey: "username")
+        newUser3.setValue(nil, forKey: "profilePhoto")
+        newUser3.setValue(nil, forKey: "savedEvents")
+        newUser3.setValue("Melbourne", forKey: "userLocation")
+        newUser3.setValue(false, forKey: "loggedIn")
+      
+        
+        let newUser4 = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
+        
+        newUser4.setValue("Sara Kindler", forKey: "fullName")
+        newUser4.setValue("saraspassword", forKey: "password")
+        newUser4.setValue("kindler", forKey: "username")
+        newUser4.setValue(nil, forKey: "profilePhoto")
+        newUser4.setValue(nil, forKey: "savedEvents")
+        newUser4.setValue("Melbourne, AU", forKey: "userLocation")
+        newUser4.setValue(false, forKey: "loggedIn")
+        
+        
+        // we save our entity
+        do {
+            try moc.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+    
+    }
     
     
     // MARK: - Segue
@@ -200,8 +254,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "LoginSegue" {
             if checkUserAndPassword(usernameTextField.text!, password: passwordTextField.text!) == true{
+                
                 return true
             }
+        }
+        
+        if identifier == "SignupSegue"{
+            return true
         }
         return false
     }

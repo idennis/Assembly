@@ -57,6 +57,7 @@ class SignUpViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+
     // Sign up
     @IBAction func signupTapped(sender: AnyObject){
         let userFullName = fullNameField.text
@@ -80,6 +81,7 @@ class SignUpViewController: UIViewController {
             newUser.setValue(nil, forKey: "profilePhoto")
             newUser.setValue(nil, forKey: "savedEvents")
             newUser.setValue(userLocation, forKey: "userLocation")
+            newUser.setValue(false, forKey: "loggedIn")
             
             
             do {

@@ -925,9 +925,18 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="oDQ-7V-80S"/>
+                    <navigationItem key="navigationItem" title="Profile" id="oDQ-7V-80S">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="bk0-au-x4M">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="signOutButtonTapped:" destination="hpv-xz-z4f" id="kZx-fj-hQj"/>
+                                <segue destination="qkb-xi-Otq" kind="show" id="KOf-ZH-9tI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="profilePhoto" destination="Ogg-1X-KfE" id="ahr-gp-8Ac"/>
+                        <outlet property="signOutButton" destination="bk0-au-x4M" id="deh-Tq-JzL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUR-Nj-9iB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -984,7 +993,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="An4-mx-Ef6">
                                         <rect key="frame" x="40" y="153" width="520" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZA-zU-3jD">
                                         <rect key="frame" x="40" y="134" width="520" height="17"/>
@@ -1108,11 +1117,11 @@
                         <viewControllerLayoutGuide type="bottom" id="dC7-ua-aw3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8xU-ZY-xCG" customClass="UIControl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Assembly logo" translatesAutoresizingMaskIntoConstraints="NO" id="dlI-iF-6vV">
-                                <rect key="frame" x="228" y="70" width="145" height="29"/>
+                                <rect key="frame" x="228" y="50" width="145" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="IeG-kb-ODZ"/>
                                     <constraint firstAttribute="width" secondItem="dlI-iF-6vV" secondAttribute="height" multiplier="1122:227" id="hGh-Gc-xg7"/>
@@ -1125,7 +1134,7 @@
                                 </variation>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bfd-hK-Ql5">
-                                <rect key="frame" x="40" y="147" width="520" height="53"/>
+                                <rect key="frame" x="40" y="127" width="520" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDr-Ma-kqq">
                                         <rect key="frame" x="0.0" y="0.0" width="520" height="21"/>
@@ -1164,7 +1173,7 @@
                                 </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="M2n-tS-jII">
-                                <rect key="frame" x="40" y="220" width="520" height="53"/>
+                                <rect key="frame" x="40" y="200" width="520" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaw-I3-cAz">
                                         <rect key="frame" x="0.0" y="0.0" width="520" height="21"/>
@@ -1189,7 +1198,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAj-pH-QFU">
-                                <rect key="frame" x="175" y="383" width="250" height="40"/>
+                                <rect key="frame" x="175" y="363" width="250" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign Up">
@@ -1202,11 +1211,11 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="signUpButton:" destination="qkb-xi-Otq" eventType="touchUpInside" id="Ie0-KH-dr6"/>
-                                    <segue destination="leZ-Tt-PBc" kind="show" id="YPs-qq-dE7"/>
+                                    <segue destination="leZ-Tt-PBc" kind="show" identifier="SignupSegue" id="YPs-qq-dE7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYe-1E-ooI">
-                                <rect key="frame" x="175" y="323" width="250" height="40"/>
+                                <rect key="frame" x="175" y="303" width="250" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5Vx-LW-PrI"/>

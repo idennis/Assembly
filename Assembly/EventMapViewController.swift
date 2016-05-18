@@ -181,10 +181,12 @@ class EventMapViewController: UIViewController, CLLocationManagerDelegate, GMSMa
         if UIDevice.currentDevice().orientation.isLandscape.boolValue {
             let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 40.0, right: 0.0)
             mapView.padding = mapInsets
+            drawButtonBorder()
             
         } else {
             let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 30.0, right: 0.0)
             mapView.padding = mapInsets
+            drawButtonBorder()
         }
     }
     
