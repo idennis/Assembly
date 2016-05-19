@@ -467,7 +467,11 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="F5n-Sm-J6u">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="VEd-Us-uHf"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="VEd-Us-uHf">
+                            <connections>
+                                <action selector="tapShareEventButton:" destination="Nv5-FB-nfu" id="tES-DE-Er3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="joinEventButton" destination="pQD-Jx-bUT" id="yGG-Sb-7Z3"/>
@@ -483,6 +487,7 @@
                         <outlet property="selectedEventNameLabel" destination="h89-0H-Rr5" id="f3a-fO-dLr"/>
                         <outlet property="selectedEventNavBar" destination="W4F-mF-xzB" id="M7i-BG-RHM"/>
                         <outlet property="selectedEventTimeLabel" destination="Tfd-u2-jAJ" id="gkl-Qe-HRE"/>
+                        <outlet property="shareEventButton" destination="VEd-Us-uHf" id="Qo4-bN-eHY"/>
                         <outlet property="tapEventAddressView" destination="k90-Ar-roB" id="yf6-6a-ioH"/>
                         <outlet property="viewMoreChevron" destination="EUt-5r-bSV" id="hrn-8L-ehE"/>
                         <outlet property="viewOnMapLabel" destination="rXG-fL-4rv" id="HNQ-b9-Qvc"/>

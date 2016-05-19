@@ -37,6 +37,7 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var joinEventButton: UIButton!
     
     
+    @IBOutlet weak var shareEventButton: UIBarButtonItem!
     
     
     // Fallback spacing attribute
@@ -178,7 +179,7 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     
     
     
-    // MARK: ACTION
+    // MARK: - ACTION
     
     @IBAction func tapJoinButton(sender: UIButton) {
         UIView.animateWithDuration(0.2, animations: {
@@ -195,7 +196,13 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     }
     
     
+    // MARK: Share
     
+    @IBAction func tapShareEventButton(sender: AnyObject) {
+        let eventLink = NSURL(string: selectedEvent!["event_url"] as! String)
+        let vc = UIActivityViewController(activityItems: ["Check out this event!\n ",selectedEventNameLabel.text!, eventLink!], applicationActivities: nil)
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
     
     
     
