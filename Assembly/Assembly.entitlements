@@ -5,6 +5,7 @@
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.au.edu.rmit.s3471480.Assembly</string>
+		<string>group.au.edu.rmit.s3471480.Assembly.share.extension</string>
 	</array>
 </dict>
 </plist>

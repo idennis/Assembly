@@ -36,6 +36,9 @@ class EventDetailsViewController: UIViewController, UINavigationControllerDelega
     
     @IBOutlet weak var joinEventButton: UIButton!
     
+    
+    
+    
     // Fallback spacing attribute
     var spacingToBottom:NSLayoutConstraint = NSLayoutConstraint()
     
