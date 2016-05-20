@@ -83,6 +83,7 @@
 		95357E141CE88FA800F5F721 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		95357E3D1CE8D36D00F5F721 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		95357E3E1CE8D36D00F5F721 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		953652B41CEE0C6300890CD9 /* Assembly.share.extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Assembly.share.extension.entitlements; sourceTree = "<group>"; };
 		953DB4781CECC5600094E1D4 /* AssemblyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssemblyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		953DB47A1CECC5600094E1D4 /* AssemblyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyTests.swift; sourceTree = "<group>"; };
 		953DB47C1CECC5600094E1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +185,7 @@
 		953DB4871CECC6E80094E1D4 /* Assembly.share.extension */ = {
 			isa = PBXGroup;
 			children = (
+				953652B41CEE0C6300890CD9 /* Assembly.share.extension.entitlements */,
 				953DB4881CECC6E80094E1D4 /* ShareViewController.swift */,
 				953DB48A1CECC6E80094E1D4 /* MainInterface.storyboard */,
 				953DB48D1CECC6E80094E1D4 /* Info.plist */,
@@ -412,6 +414,11 @@
 					953DB4851CECC6E80094E1D4 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 8LELQL34M8;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					95432C2A1C97F19A00BC21C5 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -660,12 +667,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = Assembly.share.extension/Assembly.share.extension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Assembly.share.extension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "au.edu.rmit.s3471480.Assembly.Assembly-share-extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "au.edu.rmit.Dennis.Assembly.Assembly-share-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -675,12 +683,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = Assembly.share.extension/Assembly.share.extension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Assembly.share.extension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "au.edu.rmit.s3471480.Assembly.Assembly-share-extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "au.edu.rmit.Dennis.Assembly.Assembly-share-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -780,7 +789,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Assembly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = au.edu.rmit.s3471480.Assembly;
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.rmit.Dennis.Assembly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -797,7 +806,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Assembly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = au.edu.rmit.s3471480.Assembly;
+				PRODUCT_BUNDLE_IDENTIFIER = au.edu.rmit.Dennis.Assembly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -837,6 +846,7 @@
 				953DB4811CECC5600094E1D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		953DB4911CECC6E80094E1D4 /* Build configuration list for PBXNativeTarget "Assembly.share.extension" */ = {
 			isa = XCConfigurationList;
@@ -845,6 +855,7 @@
 				953DB4931CECC6E80094E1D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95432C261C97F19A00BC21C5 /* Build configuration list for PBXProject "Assembly" */ = {
 			isa = XCConfigurationList;

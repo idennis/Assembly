@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import CoreData
+
 
 class AssemblyTests: XCTestCase {
     
@@ -35,5 +37,16 @@ class AssemblyTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    
+    
+    
+    
+    
+    // Simulate user registration process and check if user details is stored in CoreData
+    func testSignUp() {
+        
+    }
+    
     
 }

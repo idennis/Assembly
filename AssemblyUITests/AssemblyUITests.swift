@@ -35,22 +35,22 @@ class AssemblyUITests: XCTestCase {
         let app = XCUIApplication()
         let usernameTextField = app.textFields["username"]
         usernameTextField.tap()
-        usernameTextField.typeText("Test")
+        usernameTextField.typeText("kindler")
         
         
         let passwordTextField = app.secureTextFields["password"]
         
         passwordTextField.tap()
-        passwordTextField.typeText("Test")
+        passwordTextField.typeText("saraspassword")
         
         
         app.buttons["Login"].tap()
         
-        let tabBarsQuery = app.tabBars
+   //     let tabBarsQuery = app.tabBars
         
-        
-        tabBarsQuery.buttons["Profile"].tap()
-        tabBarsQuery.buttons["What's On"].tap()
+//        
+//        tabBarsQuery.buttons["Profile"].tap()
+//        tabBarsQuery.buttons["What's On"].tap()
     }
     
     
@@ -64,20 +64,18 @@ class AssemblyUITests: XCTestCase {
         let app = XCUIApplication()
         let usernameTextField = app.textFields["username"]
         usernameTextField.tap()
-        usernameTextField.typeText("Test")
+        usernameTextField.typeText("kindler")
         
         
         let passwordTextField = app.secureTextFields["password"]
         
         passwordTextField.tap()
-        passwordTextField.typeText("Test")
+        passwordTextField.typeText("saraspassword")
         
         
         app.buttons["Login"].tap()
         
         
-        let tablesQuery = app.tables
-        tablesQuery.staticTexts["Queensberry Hotel"].tap()
         
     }
     
@@ -88,20 +86,20 @@ class AssemblyUITests: XCTestCase {
         let app = XCUIApplication()
         let usernameTextField = app.textFields["username"]
         usernameTextField.tap()
-        usernameTextField.typeText("Test")
+        usernameTextField.typeText("kindler")
         
         
         let passwordTextField = app.secureTextFields["password"]
         
         passwordTextField.tap()
-        passwordTextField.typeText("Test")
+        passwordTextField.typeText("saraspassword")
         
         
         app.buttons["Login"].tap()
-        
-        app.navigationBars["WHAT'S ON"].buttons["Plus"].tap()
-        app.navigationBars["POST AN EVENT"].buttons["Cancel"].tap()
-        app.tabBars.buttons["Profile"].tap()
+//        
+//        app.navigationBars["What's On"].buttons["Plus"].tap()
+//        app.navigationBars["POST AN EVENT"].buttons["Cancel"].tap()
+//        app.tabBars.buttons["Profile"].tap()
         
     }
     
