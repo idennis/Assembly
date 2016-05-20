@@ -89,6 +89,18 @@ class SignUpViewController: UIViewController {
                 
             }
             
+            else{
+                // Show alert for completion
+                let alert = UIAlertController(title: "Uh oh", message: "The username is taken. Try signing up with another one.", preferredStyle: UIAlertControllerStyle.Alert)
+                // Redirect user back to the login screen
+                let alertAction = UIAlertAction(title: "Okay", style: .Default) { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+                alert.addAction(alertAction)
+                self.presentViewController(alert, animated: true, completion: nil)
+
+            }
+            
            
         }
         
