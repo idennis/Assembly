@@ -13,8 +13,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     // MARK: Model
-    //var model = Model.sharedInstance
-    let moc = DataController().managedObjectContext
+    var model = Model.sharedInstance
+    
     
     
     // MARK: Properties
@@ -58,8 +58,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Check of input fields are empty
         checkLoginEmpty()
         
-        //seedUsers()
-        fetchUser()
+        //model.seedUsers()
+        model.fetchUser()
         
     }
 
@@ -89,7 +89,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
             
             if checkLoginEmpty() == false{
-                print("check empty fields")
                 loginButton.sendActionsForControlEvents(.TouchUpInside)
             }
             return true
@@ -112,9 +111,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // User press Login Button
     @IBAction func loginButton(sender: UIButton) {
-        if checkUserAndPassword(usernameTextField.text!, password: passwordTextField.text!) == true{
-            print("USER FOUND")
-            
+        if model.checkUserAndPassword(usernameTextField.text!, password: passwordTextField.text!) == true{
+            print(model.currUser)
         }
         else{
             let alert = UIAlertController(title: "Oops", message: "The username and password you have entered does not match our records. Double-check and try again.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -133,111 +131,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    // MARK: - Find User in DB
-    func checkUserAndPassword(username:String, password:String)->Bool{
-        let predicate = NSPredicate(format:"username = %@", username)
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        fetchRequest.predicate = predicate
-        
-        
-        
-        do{
-            let fetchResult = try moc.executeFetchRequest(fetchRequest)
-            
-            if fetchResult.count > 0 {
-                let fetchedUser:User = fetchResult.first as! User
-                
-                if fetchedUser.username == username && fetchedUser.password == password {
-                    fetchedUser.loggedIn = true
-                    let currUser = fetchedUser
-                    return true
-                }
-                
-                else{
-                    return false
-                }
-            }
-        } catch {
-            fatalError("could not fetch users \(error)")
-        }
-        
-        return false
-    }
     
     
-    // MARK: - Fetch User
-    func fetchUser(){
-        let userFetch = NSFetchRequest(entityName: "User")
-        
-        do{
-            let fetchedUser = try moc.executeFetchRequest(userFetch) as! [User]
-            print(fetchedUser.count)
-            for user in fetchedUser{
-                user.loggedIn = false
-                print(user.fullName, user.password, user.username)
-            }
-        } catch {
-            fatalError("could not fetch user \(error)")
-        }
-        
-        
-    }
+
     
     
-    // MARK: - Seed Users (use this when model is changed)
-    func seedUsers(){
-        let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
-        
-        newUser.setValue("Sean Wilkes", forKey: "fullName")
-        newUser.setValue("testpassword", forKey: "password")
-        newUser.setValue("sean.w", forKey: "username")
-        newUser.setValue(nil, forKey: "profilePhoto")
-        newUser.setValue(nil, forKey: "savedEvents")
-        newUser.setValue("melb au", forKey: "userLocation")
-        newUser.setValue(false, forKey: "loggedIn")
-        
-        
-        let newUser2 = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
-        
-        newUser2.setValue("Anita Schmidt", forKey: "fullName")
-        newUser2.setValue("123456", forKey: "password")
-        newUser2.setValue("anita_schmidt", forKey: "username")
-        newUser2.setValue(nil, forKey: "profilePhoto")
-        newUser2.setValue(nil, forKey: "savedEvents")
-        newUser2.setValue("down under", forKey: "userLocation")
-        newUser2.setValue(false, forKey: "loggedIn")
-        
-        
-        let newUser3 = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
-        
-        newUser3.setValue("Owen Bright", forKey: "fullName")
-        newUser3.setValue("password", forKey: "password")
-        newUser3.setValue("owen.bright", forKey: "username")
-        newUser3.setValue(nil, forKey: "profilePhoto")
-        newUser3.setValue(nil, forKey: "savedEvents")
-        newUser3.setValue("Melbourne", forKey: "userLocation")
-        newUser3.setValue(false, forKey: "loggedIn")
-      
-        
-        let newUser4 = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
-        
-        newUser4.setValue("Sara Kindler", forKey: "fullName")
-        newUser4.setValue("saraspassword", forKey: "password")
-        newUser4.setValue("kindler", forKey: "username")
-        newUser4.setValue(nil, forKey: "profilePhoto")
-        newUser4.setValue(nil, forKey: "savedEvents")
-        newUser4.setValue("Melbourne, AU", forKey: "userLocation")
-        newUser4.setValue(false, forKey: "loggedIn")
-        
-        
-        // we save our entity
-        do {
-            try moc.save()
-        } catch {
-            fatalError("Failure to save context: \(error)")
-        }
     
-    }
     
     
     // MARK: - Segue
@@ -253,7 +152,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "LoginSegue" {
-            if checkUserAndPassword(usernameTextField.text!, password: passwordTextField.text!) == true{
+            if model.checkUserAndPassword(usernameTextField.text!, password: passwordTextField.text!) == true{
                 
                 return true
             }

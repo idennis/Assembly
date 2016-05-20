@@ -15,17 +15,23 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     
-    // Model
-    let moc = DataController().managedObjectContext
+    @IBOutlet weak var userFullNameLabel: UILabel!
+    @IBOutlet weak var userLocationLabel: UILabel!
     
-    lazy var currUser:User = User()
+    
+    
+    // Model
+    var model = Model.sharedInstance
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(moc)
+        
         styleProfilePhoto()
+        loadUserInfo()
 
     }
     
@@ -37,7 +43,15 @@ class ProfileViewController: UIViewController {
         profilePhoto.layer.borderColor = UIColor.whiteColor().CGColor
         profilePhoto.layer.borderWidth = 2
     }
+
     
+    // MARK: - User Information
+    func loadUserInfo(){
+        
+        userFullNameLabel.text = model.currUser.fullName
+        userLocationLabel.text = model.currUser.userLocation
+        
+    }
  
 
     override func didReceiveMemoryWarning() {

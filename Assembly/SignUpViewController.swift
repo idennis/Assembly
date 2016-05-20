@@ -13,6 +13,9 @@ class SignUpViewController: UIViewController {
 
     
     // MARK: - Properties
+    var model:Model = Model.sharedInstance
+    
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var signupButton: UIButton!
@@ -73,32 +76,20 @@ class SignUpViewController: UIViewController {
         
         else{
 
-            let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
-            
-            newUser.setValue(userFullName, forKey: "fullName")
-            newUser.setValue(userPassword, forKey: "password")
-            newUser.setValue(username, forKey: "username")
-            newUser.setValue(nil, forKey: "profilePhoto")
-            newUser.setValue(nil, forKey: "savedEvents")
-            newUser.setValue(userLocation, forKey: "userLocation")
-            newUser.setValue(false, forKey: "loggedIn")
-            
-            
-            do {
-                try
-                    moc.save()
-                    let alert = UIAlertController(title: "Register complete", message: "Let's log in.", preferredStyle: UIAlertControllerStyle.Alert)
-                    // Redirect user back to the login screen
-                    let alertAction = UIAlertAction(title: "Got it", style: .Default) { (action) -> Void in
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                    }
-                    alert.addAction(alertAction)
-                    self.presentViewController(alert, animated: true, completion: nil)
+            if model.saveNewUser(userFullName!,username: username!,userPassword: userPassword!,userLocation: userLocation!) == true{
                 
-            } catch {
-                fatalError("fail to save context: \(error)")
+                // Show alert for completion
+                let alert = UIAlertController(title: "Register complete", message: "Let's log in.", preferredStyle: UIAlertControllerStyle.Alert)
+                // Redirect user back to the login screen
+                let alertAction = UIAlertAction(title: "Got it", style: .Default) { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+                alert.addAction(alertAction)
+                self.presentViewController(alert, animated: true, completion: nil)
+                
             }
-
+            
+           
         }
         
         

@@ -932,7 +932,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="oDQ-7V-80S">
-                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="bk0-au-x4M">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="bk0-au-x4M">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="signOutButtonTapped:" destination="hpv-xz-z4f" id="kZx-fj-hQj"/>
@@ -943,6 +943,8 @@
                     <connections>
                         <outlet property="profilePhoto" destination="Ogg-1X-KfE" id="ahr-gp-8Ac"/>
                         <outlet property="signOutButton" destination="bk0-au-x4M" id="deh-Tq-JzL"/>
+                        <outlet property="userFullNameLabel" destination="mzm-NW-uh5" id="vuz-3A-QEz"/>
+                        <outlet property="userLocationLabel" destination="i7D-2D-k37" id="MRm-qH-pDP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUR-Nj-9iB" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		952342A21CAD3E4A00B52599 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952342A11CAD3E4A00B52599 /* EventTableViewCell.swift */; };
 		952342A41CAD3F8300B52599 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952342A31CAD3F8300B52599 /* EventTableViewController.swift */; };
+		9531A1AF1CEEFAC70098FDD2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531A1AE1CEEFAC70098FDD2 /* CurrentUser.swift */; };
 		95357DFE1CE841C800F5F721 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95357DFD1CE841C800F5F721 /* CoreData.framework */; };
 		95357E011CE8421000F5F721 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95357DFF1CE8421000F5F721 /* CoreDataModel.xcdatamodeld */; };
 		95357E0F1CE87DE700F5F721 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95357E0E1CE87DE700F5F721 /* DataController.swift */; };
@@ -77,6 +78,7 @@
 		28D66E19410A7232DC6D6A47 /* Pods-Assembly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assembly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assembly/Pods-Assembly.debug.xcconfig"; sourceTree = "<group>"; };
 		952342A11CAD3E4A00B52599 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		952342A31CAD3F8300B52599 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
+		9531A1AE1CEEFAC70098FDD2 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		95357DFD1CE841C800F5F721 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		95357E001CE8421000F5F721 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		95357E0E1CE87DE700F5F721 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 			children = (
 				95357E3D1CE8D36D00F5F721 /* User+CoreDataProperties.swift */,
 				95357E3E1CE8D36D00F5F721 /* User.swift */,
+				9531A1AE1CEEFAC70098FDD2 /* CurrentUser.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				95357E0F1CE87DE700F5F721 /* DataController.swift in Sources */,
 				95357E3F1CE8D36D00F5F721 /* User+CoreDataProperties.swift in Sources */,
 				95357E151CE88FA800F5F721 /* SignUpViewController.swift in Sources */,
+				9531A1AF1CEEFAC70098FDD2 /* CurrentUser.swift in Sources */,
 				952342A21CAD3E4A00B52599 /* EventTableViewCell.swift in Sources */,
 				9592D8D61CB01793003A8E3F /* LoginViewController.swift in Sources */,
 				9592D8D81CB08CE3003A8E3F /* EventDetailsViewController.swift in Sources */,
