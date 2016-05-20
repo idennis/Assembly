@@ -12,6 +12,8 @@ import CoreData
 
 class AssemblyTests: XCTestCase {
     
+    
+    
     override func setUp() {
         super.setUp()
         
@@ -45,6 +47,8 @@ class AssemblyTests: XCTestCase {
     
     // Simulate user registration process and check if user details is stored in CoreData
     func testSignUp() {
+     
+        // Allocate View Controller 
         
     }
     
